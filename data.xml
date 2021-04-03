@@ -43,16 +43,64 @@
 				</if>
 			</triggers>
 		</value>
+		<value>
+			<name>consensus</name>
+			<title>Consenso</title>
+			<description>Il tuo consenso da parte della popolazione. Un indicatore importante</description>
+			<min>0</min>
+			<max>100</max>
+			<default>100</default>
+			<colorZones>
+				<colorZone>
+					<min>0</min>
+					<max>30</max>
+					<color>red</color>
+					<description>Beh, che dire...</description>
+				</colorZone>
+				<colorZone>
+					<min>31</min>
+					<max>50</max>
+					<color>orange</color>
+					<description>Dai...</description>
+				</colorZone>
+				<colorZone>
+					<min>51</min>
+					<max>60</max>
+					<color>yellow</color>
+					<description>Non male</description>
+				</colorZone>
+				<colorZone>
+					<min>61</min>
+					<max>100</max>
+					<color>green</color>
+					<description>Ok</description>
+				</colorZone>
+			</colorZones>
+			<triggers>
+				<if is="0">
+					<goto scene="consensusGameOver" />
+				</if>
+				<if lessThan="50">
+					<goto scene="consensusWarn" />
+				</if>
+			</triggers>
+		</value>
 	</values>
 	<sections>
 		<events>
 			<event frames="3" chance="10">
-				<if who="checkpoints" what="virusDeveloped" is="true" />
+				<!--
+				Ogni 3 schermate sorteggia, chance è la percentuale di probabilità che questo evento accada
+				-->
+				<if who="checkpoints" what="virusDeveloped" is="true" /> 
 				<name>new_variant</name>
 				<title>Nuova variante</title>
 				<description>
 					Il corriere della Pera annuncia l'arrivo di una nuova variante di <print what="virusName" />. La nuova variante è
 					<sectionGroup atLeastOne="true" chance="100">
+						<!--
+						uno e uno soltanto di questi eventi avverrà sicuramente
+						-->
 						<section chance="10">
 							più letale del 10%
 							<set who="virus" what="lethal" delta="+10" />
@@ -73,10 +121,42 @@
 					</choice>
 				</choices>
 			</event>
+		<event frames="20" chance="45">
+				<if who="levels" what="consensus" lessThan="25" /> 
+				<name>crisi_di_governo</name>
+				<title>Crisi di governo</title>
+				<description>
+					
+					<sectionGroup atLeastOne="true" chance="100">
+						<section chance="40">
+							A causa del <print what="virusName" / >, il partito <print who="parties" what="rand" / > ha deciso di innescare una crisi di governo.
+							Per fortuna i tuoi alleati ti sostengono e ne esci quasi illeso.
+							<set who="levels" what="consensus" delta="-5" />
+						</section>
+						<section chance="50">
+							A causa del <print what="virusName" / >, il partito <print who="parties" what="rand" / > ha deciso di innescare una crisi di governo.
+							Il tuo governo subisce un reimpasto.
+							<set who="levels" what="consensus" delta="-10" />
+						</section>
+						<section chance="10">
+							A causa della tua gestione del <print what="virusName" / >, l'esercito tenta un colpo di stato.
+							<goto scene="coup" / >
+						</section>
+					</sectionGroup>
+				</description>
+				<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</event>
 		</events>
 		<scenes>
 			<scene>
-				<name>fondi_europei_scuola</name>
+				<name>fondi_europei_scuola_yesno</name>
 				<title>Detto fatto</title>
 				<description>
 				<if who="checkpoints" what="consensus" lessThan="50">
@@ -100,6 +180,15 @@
 					</choice>
 				</choices>
 			</scene>
+			<scene>
+				<name>coup</name>
+				<title>Fuoco alle polveri</title>
+				<description>
+				Mentre vieni bersagliato dall'artiglieria ti rinchiudi nel tuo ufficio.
+				Dopo esserti barricato per alcuni minuti, una coltre di fumo di odore pungente riempie l'ufficio.
+			</description>
+				<gameOver / >
+			</scene>
 		</scenes>
 		<questions>
 			<question>
@@ -108,7 +197,7 @@
 				<title>Fondi Europei per la scuola</title>
 				<description>
 					L'unione Europea offre dei fondi per la scuola a patto di integrare i programmi scolastici con quelli degli altri stati
-					<if who="checkpoints" what="consensus" lessThan="50">
+					<if who="levels" what="consensus" lessThan="50">
 					I tuoi alleati di governo ti guardano con disappunto.
 				</if>
 				</description>
