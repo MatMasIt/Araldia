@@ -92,11 +92,13 @@
 				<!--
 				Ogni 3 schermate sorteggia, chance è la percentuale di probabilità che questo evento accada
 				-->
-				<if who="checkpoints" what="virusDeveloped" is="true" /> 
+				<if who="checkpoints" what="virusDeveloped" is="true" />
 				<name>new_variant</name>
 				<title>Nuova variante</title>
 				<description>
-					Il corriere della Pera annuncia l'arrivo di una nuova variante di <print what="virusName" />. La nuova variante è
+					Il corriere della Pera annuncia l'arrivo di una nuova variante di
+					<print what="virusName" />
+					. La nuova variante è
 					<sectionGroup atLeastOne="true" chance="100">
 						<!--
 						uno e uno soltanto di questi eventi avverrà sicuramente
@@ -121,26 +123,36 @@
 					</choice>
 				</choices>
 			</event>
-		<event frames="20" chance="45">
-				<if who="levels" what="consensus" lessThan="25" /> 
+			<event frames="20" chance="45">
+				<if who="levels" what="consensus" lessThan="25" />
 				<name>crisi_di_governo</name>
 				<title>Crisi di governo</title>
 				<description>
-					
+
 					<sectionGroup atLeastOne="true" chance="100">
 						<section chance="40">
-							A causa del <print what="virusName" / >, il partito <print who="parties" what="rand" / > ha deciso di innescare una crisi di governo.
+							A causa del
+							<print what="virusName" />
+							, il partito
+							<print who="parties" what="rand" />
+							ha deciso di innescare una crisi di governo.
 							Per fortuna i tuoi alleati ti sostengono e ne esci quasi illeso.
 							<set who="levels" what="consensus" delta="-5" />
 						</section>
 						<section chance="50">
-							A causa del <print what="virusName" / >, il partito <print who="parties" what="rand" / > ha deciso di innescare una crisi di governo.
+							A causa del
+							<print what="virusName" />
+							, il partito
+							<print who="parties" what="rand" />
+							ha deciso di innescare una crisi di governo.
 							Il tuo governo subisce un reimpasto.
 							<set who="levels" what="consensus" delta="-10" />
 						</section>
 						<section chance="10">
-							A causa della tua gestione del <print what="virusName" / >, l'esercito tenta un colpo di stato.
-							<goto scene="coup" / >
+							A causa della tua gestione del
+							<print what="virusName" />
+							, l'esercito tenta un colpo di stato.
+							<goto scene="coup" />
 						</section>
 					</sectionGroup>
 				</description>
@@ -159,17 +171,17 @@
 				<name>fondi_europei_scuola_yesno</name>
 				<title>Detto fatto</title>
 				<description>
-				<if who="checkpoints" what="consensus" lessThan="50">
-					I tuoi alleati di governo ti guardano con disappunto.
-					<set who="levels" what="school" delta="+5" />
-					<set who="levels" what="consensus" delta="-5" />
-				</if>
-				<else>
-					I docenti di tutte le scuole ti sorridono.
-					<set who="levels" what="school" delta="+10" />
-					<set who="levels" what="consensus" delta="+10" />
-				</else>
-			</description>
+					<if who="checkpoints" what="consensus" lessThan="50">
+						I tuoi alleati di governo ti guardano con disappunto.
+						<set who="levels" what="school" delta="+5" />
+						<set who="levels" what="consensus" delta="-5" />
+					</if>
+					<else>
+						I docenti di tutte le scuole ti sorridono.
+						<set who="levels" what="school" delta="+10" />
+						<set who="levels" what="consensus" delta="+10" />
+					</else>
+				</description>
 				<set who="checkpoints" what="virusMutated" to="true" />
 				<choices>
 					<choice>
@@ -187,7 +199,7 @@
 				Mentre vieni bersagliato dall'artiglieria ti rinchiudi nel tuo ufficio.
 				Dopo esserti barricato per alcuni minuti, una coltre di fumo di odore pungente riempie l'ufficio.
 			</description>
-				<gameOver / >
+				<gameOver />
 			</scene>
 		</scenes>
 		<questions>
@@ -217,30 +229,30 @@
 			</question>
 		</questions>
 	</sections>
-<viruses>
-	<virus>
-		<name>eys</name>
-		<title>eys-1</title>
-		<description>Descrizione</description>
-		<stats>
-			<transmissionSpeed>1</transmissionSpeed>
-			<lethality>1</lethality>
-			<hospitalizationRate>1</hospitalizationRate>
-		</stats>
-		<infoboxes>
-			<infobox>
-				<title>Infobox1</title>
-				<description>Testo</description>
-			</infobox>
-		</infoboxes>
-	</virus>
-</viruses>
-<parties>
-	<party>
-		<name>partito_giallo</name>
-		<title>Partito Giallo</title>
-		<description>Whatever</description>
-		<motto>For the many, not the few.</motto>
-	</party>
-</parties>
+	<viruses>
+		<virus>
+			<name>eys</name>
+			<title>eys-1</title>
+			<description>Descrizione</description>
+			<stats>
+				<transmissionSpeed>1</transmissionSpeed>
+				<lethality>1</lethality>
+				<hospitalizationRate>1</hospitalizationRate>
+			</stats>
+			<infoboxes>
+				<infobox>
+					<title>Infobox1</title>
+					<description>Testo</description>
+				</infobox>
+			</infoboxes>
+		</virus>
+	</viruses>
+	<parties>
+		<party>
+			<name>partito_giallo</name>
+			<title>Partito Giallo</title>
+			<description>Whatever</description>
+			<motto>For the many, not the few.</motto>
+		</party>
+	</parties>
 </Araldia>
