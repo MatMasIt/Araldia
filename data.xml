@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Araldia>
+	<values>
+		<value>
+			<name>health</name>
+			<title>Salute</title>
+			<description>Il livello di salute della popolazione. Un indicatore importante</description>
+			<min>0</min>
+			<max>100</max>
+			<default>100</default>
+			<colorZones>
+				<colorZone>
+					<min>0</min>
+					<max>30</max>
+					<color>red</color>
+					<description>Beh, che dire...</description>
+				</colorZone>
+				<colorZone>
+					<min>31</min>
+					<max>50</max>
+					<color>orange</color>
+					<description>Dai...</description>
+				</colorZone>
+				<colorZone>
+					<min>51</min>
+					<max>60</max>
+					<color>yellow</color>
+					<description>Non male</description>
+				</colorZone>
+				<colorZone>
+					<min>61</min>
+					<max>100</max>
+					<color>green</color>
+					<description>Ok</description>
+				</colorZone>
+			</colorZones>
+			<triggers>
+				<if is="0">
+					<goto scene="healthGameOver" />
+				</if>
+				<if lessThan="50">
+					<goto scene="healthWarn" />
+				</if>
+			</triggers>
+		</value>
+	</values>
+	<sections>
+		<events>
+			<event frames="3" chance="10">
+				<if who="checkpoints" what="virusDeveloped" is="true" />
+				<name>new_variant</name>
+				<title>Nuova variante</title>
+				<description>
+					Il corriere della Pera annuncia l'arrivo di una nuova variante di <print what="virusName" />. La nuova variante è
+					<sectionGroup atLeastOne="true" chance="100">
+						<section chance="10">
+							più letale del 10%
+							<set who="virus" what="lethal" delta="+10" />
+						</section>
+						<section chance="10">
+							meno letale del 10%
+							<set who="virus" what="lethal" delta="-10" />
+						</section>
+					</sectionGroup>
+				</description>
+				<set who="checkpoints" what="virusMutated" to="true" />
+				<choices>
+					<choice>
+						<title>Ho capito</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</event>
+		</events>
+		<scenes>
+			<scene>
+				<name>fondi_europei_scuola</name>
+				<title>Detto fatto</title>
+				<description>
+				<if who="checkpoints" what="consensus" lessThan="50">
+					I tuoi alleati di governo ti guardano con disappunto.
+					<set who="levels" what="school" delta="+5" />
+					<set who="levels" what="consensus" delta="-5" />
+				</if>
+				<else>
+					I docenti di tutte le scuole ti sorridono.
+					<set who="levels" what="school" delta="+10" />
+					<set who="levels" what="consensus" delta="+10" />
+				</else>
+			</description>
+				<set who="checkpoints" what="virusMutated" to="true" />
+				<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+		</scenes>
+		<questions>
+			<question>
+				<if who="checkpoints" what="virusDeveloped" is="true" />
+				<name>fondi_europei_scuola</name>
+				<title>Fondi Europei per la scuola</title>
+				<description>
+					L'unione Europea offre dei fondi per la scuola a patto di integrare i programmi scolastici con quelli degli altri stati
+					<if who="checkpoints" what="consensus" lessThan="50">
+					I tuoi alleati di governo ti guardano con disappunto.
+				</if>
+				</description>
+				<set who="checkpoints" what="virusMutated" to="true" />
+				<choices>
+					<choice>
+						<title>Certo</title>
+						<goto scene="fondi_europei_scuola_yesno" />
+					</choice>
+					<choice>
+						<title>Per niente!</title>
+						<effects>
+							<goto scene="fondi_europei_scuola_yesno" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		</questions>
+	</sections>
+<viruses>
+	<virus>
+		<name>eys</name>
+		<title>eys-1</title>
+		<description>Descrizione</description>
+		<stats>
+			<transmissionSpeed>1</transmissionSpeed>
+			<lethality>1</lethality>
+			<hospitalizationRate>1</hospitalizationRate>
+		</stats>
+		<infoboxes>
+			<infobox>
+				<title>Infobox1</title>
+				<description>Testo</description>
+			</infobox>
+		</infoboxes>
+	</virus>
+</viruses>
+<parties>
+	<party>
+		<name>partito_giallo</name>
+		<title>Partito Giallo</title>
+		<description>Whatever</description>
+		<motto>For the many, not the few.</motto>
+	</party>
+</parties>
+</Araldia>
