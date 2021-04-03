@@ -251,8 +251,72 @@
 		<party>
 			<name>partito_giallo</name>
 			<title>Partito Giallo</title>
-			<description>Whatever</description>
-			<motto>For the many, not the few.</motto>
+			<secretary>Domenico Sansovino</secretary>
+			<description>Un partito di centro moderato</description>
+			<motto>Viva la libertàaaaa iaaaaaaaa</motto>
+		</party>
+		<party>
+			<name>no_al_5g</name>
+			<title>No al 5G</title>
+			<secretary>Giovanna Vogheri</secretary>
+			<description>Un partito il cui interesse esclusivo è bandire il 5G, quale emissario di Satana,</description>
+			<motto>Uniti nella nostra APERTURA MENTALE</motto>
+		</party>
+		<party>
+			<name>partito_anarchico</name>
+			<title>Partito anarchico</title>
+			<secretary>Carlo Massimo</secretary>
+			<description>Fanno quello che vogliono</description>
+			<motto>Siamo anarchici ma non quando votiamo</motto>
+		</party>
+		<party>
+			<name>il_popolo_delle_mamme</name>
+			<title>Il popolo delle mamme</title>
+			<secretary>Silvia Pavesini</secretary>
+			<description>Anche questi fanno quello che vogliono </description>
+			<motto>I bambiniiiiiiiii</motto>
+		</party>
+		<party>
+			<name>laser</name>
+			<title>Laser a cinqui euri</title>
+			<secretary>Aieie Brasorx</secretary>
+			<description>Usano i laser in parlamento per accecare l'opposizione</description>
+			<motto>Solo a cinqui euri, beli i laser</motto>
+		</party>
+		<party>
+			<name>totocalcio</name>
+			<title>Totocalcio</title>
+			<secretary>Toto Rinaldi</secretary>
+			<description>Scommettono sulla loro vittoria, per ora hanno solo perso</description>
+			<motto>Scommetti sul tuo futuro (nel frattempo organizziamo i brogli)</motto>
+		</party>
+		<party>
+			<name>forza_vecchia</name>
+			<title>Forza Vecchia</title>
+			<secretary>Federico VII di Salerno</secretary>
+			<description>Medievisti puri</description>
+			<motto>Si stava meglio quando si stava peggio</motto>
+		</party>
+		<party>
+			<name>Ikea</name>
+			<title>Sveglia dell' IKEA</title>
+			<secretary>Äntligen Färgglad</secretary>
+			<description>Nessuno capisce quello che dicono</description>
+			<motto>När är det bäst att besöka oss?</motto>
+		</party>
+		<party>
+			<name>sedia girevole</name>
+			<title>Sedia Girevole</title>
+			<secretary>Francesco Eppson</secretary>
+			<description>Girano tutto il giorno in parlamento sulle poltrone</description>
+			<motto>Uiiiiiiiii haha</motto>
+		</party>
+		<party>
+			<name>basta_powerpoint</name>
+			<title>Basta PowePoint</title>
+			<secretary>Stefano Mansioni</secretary>
+			<description>Odiano PowePoint</description>
+			<motto>BASTA POWERPOINT BASTAAAAAAAAAA: Usate Prezi por favor</motto>
 		</party>
 	</parties>
 </Araldia>
