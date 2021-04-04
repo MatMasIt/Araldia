@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<title>Araldia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<style>
+	#levels {
+		font-size: 27px;
+	}
+
+	footer {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	body {
+		background-color: black;
+		/*cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAoAAQCoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/AAAA/wAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf94Ek3/AAAA/wAAAAAAAAAAAAAAAwAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/6Yfbv94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/ph9u/6Yfbv94Ek3/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf+mH27/xDGH/6Yfbv94Ek3/eBJN/3gSTf94Ek3/eBJN/3gSTf94Ek3/eBJN/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/6Yfbv/EMYf/xDGH/6Yfbv+mH27/ph9u/6Yfbv+mH27/ph9u/3gSTf8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/ph9u/8Qxh//HRJD/xDGH/8Qxh//EMYf/xDGH/6Yfbv94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf+mH27/xDGH/8dEkP/WZaf/x0SQ/8Qxh/+mH27/eBJN/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/6Yfbv/EMYf/x0SQ/8dEkP/EMYf/ph9u/3gSTf8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/ph9u/8Qxh//HRJD/xDGH/6Yfbv94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf+mH27/xDGH/8Qxh/+mH27/eBJN/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/6Yfbv/EMYf/ph9u/3gSTf8AAAD/AAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/ph9u/6Yfbv94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf+mH27/eBJN/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/3gSTf8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////////////////////////////////////////////////////v////5////+P////h////4P///+AAP//gAH//4AD//+AB///gA///4Af//+AP///gH///4D///+B////g////4f///+P////n////7/////////////8='), auto; 
+*/
+	}
+
+	* {
+		background-color: black;
+		color: white;
+		/*
+    font-family: 'New Tegomin', serif;
+    */
+		font-family: 'Press Start 2P', cursive;
+	}
+
+	button {
+		background-color: white;
+		color: black;
+		border: 2px solid #5555;
+	}
+
+	button:hover {
+		background-color: #5555;
+		color: white;
+	}
+
+	@keyframes slideleft {
+		from {
+			background-position: 0%;
+		}
+
+		to {
+			background-position: 90000%;
+		}
+	}
+
+	@-webkit-keyframes slideleft {
+		from {
+			background-position: 0%;
+		}
+
+		to {
+			background-position: 90000%;
+		}
+	}
+
+	.mtW {
+		width: 500px;
+	}
+
+	#masthead {
+		background-image: url('https://wallpx.com/image/2020/11/synthwave-cityscape-neon-8-bit.jpg');
+		background-repeat: repeat-x;
+		animation: slideleft 6000s infinite linear;
+		-webkit-animation: slideleft 6000s infinite linear;
+		width: 900px;
+		height: 500px;
+	}
+
+
+
+	.mc {
+		width: 18em;
+		height: 8em;
+		margin: 1em auto;
+		overflow: hidden;
+		background: white;
+		position: relative;
+		box-sizing: border-box;
+	}
+
+	.marquee {
+		top: 6em;
+		position: relative;
+		box-sizing: border-box;
+		animation: marquee 15s linear infinite;
+	}
+
+	#beginSect {
+		display: none;
+	}
+</style>
+
+<body>
+	<header>
+		<h1>Araldia</h1>
+		<i>Presidente, abbiamo bisogno del suo aiuto!</i>
+		<center>
+			<div id="levels"></div>
+		</center>
+	</header>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div id="content">
+		<center>
+			<div id="mainMenu">
+				<div id="masthead"></div>
+				<br />
+				<input type="text" placeholder="Nome" id="username" class="nes-input is-dark" style="width:300px"><br />
+				<button id="begin" class="nes-btn">All'ufficio</button>
+			</div>
+			<div id="beginSect">
+				<br />
+				<marquee width="60%" direction="up" height="400px;" scrolldelay="400" id="mq">
+				</marquee>
+			</div>
+		</center>
+	</div>
+	<footer>
+		<h5><span style="display:inline-block;transform: rotate(180deg);">&copy;</span> 2021, Mattia Mascarello, Diego
+			Scanavino, Giacomo Roggero</h5>
+	</footer>
+
+
+</body>
+
+</html>
+<script>
+	var gameVars = {};
+
+	var audio = null;
+	function play() {
+		audio = new Audio('music/Rolemusic - The Black Kitty.mp3');
+		audio.play();
+
+	}
+	var bool = false;
+	addEventListener("click", function () {
+		document.getElementsByTagName("body")[0].requestFullscreen();
+		if (bool) return false;
+		if (!bool) bool = true;
+		play();
+
+	});
+	function deAudio(time = 10) {
+		try {
+			console.log(audio.volume);
+			if (audio.volume > 0) {
+				audio.volume -= 0.01;
+				setTimeout(deAudio, 10 * time);
+			}
+
+		} catch (error) {
+			audio.volume = 0;
+		}
+	}
+	var text, parser, xmlDoc;
+	text = `<?xml version="1.0" encoding="utf-8"?>
+<Araldia version="1.0">
+	<values>
+		<value>
+			<name>health</name>
+			<title>Salute</title>
+			<description>Il livello di salute della popolazione. Un indicatore importante</description>
+			<min>0</min>
+			<max>100</max>
+			<default>100</default>
+			<colorZones>
+				<colorZone>
+					<min>0</min>
+					<max>30</max>
+					<color>red</color>
+					<description>Beh, che dire...</description>
+				</colorZone>
+				<colorZone>
+					<min>31</min>
+					<max>50</max>
+					<color>orange</color>
+					<description>Dai...</description>
+				</colorZone>
+				<colorZone>
+					<min>51</min>
+					<max>60</max>
+					<color>yellow</color>
+					<description>Non male</description>
+				</colorZone>
+				<colorZone>
+					<min>61</min>
+					<max>100</max>
+					<color>green</color>
+					<description>Ok</description>
+				</colorZone>
+			</colorZones>
+			<triggers>
+				<if is="0">
+					<goto scene="healthGameOver" />
+				</if>
+				<if lessThan="50">
+					<goto scene="healthWarn" />
+				</if>
+			</triggers>
+		</value>
+		<value>
+			<name>consensus</name>
+			<title>Consenso</title>
+			<description>Il tuo consenso da parte della popolazione. Un indicatore importante</description>
+			<min>0</min>
+			<max>100</max>
+			<default>100</default>
+			<colorZones>
+				<colorZone>
+					<min>0</min>
+					<max>30</max>
+					<color>red</color>
+					<description>Beh, che dire...</description>
+				</colorZone>
+				<colorZone>
+					<min>31</min>
+					<max>50</max>
+					<color>orange</color>
+					<description>Dai...</description>
+				</colorZone>
+				<colorZone>
+					<min>51</min>
+					<max>60</max>
+					<color>yellow</color>
+					<description>Non male</description>
+				</colorZone>
+				<colorZone>
+					<min>61</min>
+					<max>100</max>
+					<color>green</color>
+					<description>Ok</description>
+				</colorZone>
+			</colorZones>
+			<triggers>
+				<if is="0">
+					<goto scene="consensusGameOver" />
+				</if>
+				<if lessThan="50">
+					<goto scene="consensusWarn" />
+				</if>
+			</triggers>
+		</value>
+	</values>
+	<sections>
+		<events>
+			<event frames="3" chance="10">
+				<!--
+				Ogni 3 schermate sorteggia, chance è la percentuale di probabilità che questo evento accada
+				-->
+				<if who="checkpoints" what="virusDeveloped" is="true" />
+				<name>new_variant</name>
+				<title>Nuova variante</title>
+				<description>
+					Il corriere della Pera annuncia l'arrivo di una nuova variante di
+					<print what="virusName" />
+					. La nuova variante è
+					<sectionGroup atLeastOne="true" chance="100">
+						<!--
+						uno e uno soltanto di questi eventi avverrà sicuramente
+						-->
+						<section chance="10">
+							più letale del 10%
+							<set who="virus" what="lethal" delta="+10" />
+						</section>
+						<section chance="10">
+							meno letale del 10%
+							<set who="virus" what="lethal" delta="-10" />
+						</section>
+					</sectionGroup>
+				</description>
+				<set who="checkpoints" what="virusMutated" to="true" />
+				<choices>
+					<choice>
+						<title>Ho capito</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</event>
+			<event frames="20" chance="45">
+				<if who="levels" what="consensus" lessThan="25" />
+				<name>crisi_di_governo</name>
+				<title>Crisi di governo</title>
+				<description>
+
+					<sectionGroup atLeastOne="true" chance="100">
+						<section chance="40">
+							A causa del
+							<print what="virusName" />
+							, il partito
+							<print who="parties" what="rand" />
+							ha deciso di innescare una crisi di governo.
+							Per fortuna i tuoi alleati ti sostengono e ne esci quasi illeso.
+							<set who="levels" what="consensus" delta="-5" />
+						</section>
+						<section chance="50">
+							A causa del
+							<print what="virusName" />
+							, il partito
+							<print who="parties" what="rand" />
+							ha deciso di innescare una crisi di governo.
+							Il tuo governo subisce un reimpasto.
+							<set who="levels" what="consensus" delta="-10" />
+						</section>
+						<section chance="10">
+							A causa della tua gestione del
+							<print what="virusName" />
+							, l'esercito tenta un colpo di stato.
+							<goto scene="coup" />
+						</section>
+					</sectionGroup>
+				</description>
+				<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</event>
+		</events>
+		<scenes>
+			<scene>
+				<name>fondi_europei_scuola_yesno</name>
+				<title>Detto fatto</title>
+				<description>
+					<if who="checkpoints" what="consensus" lessThan="50">
+						I tuoi alleati di governo ti guardano con disappunto.
+						<set who="levels" what="school" delta="+5" />
+						<set who="levels" what="consensus" delta="-5" />
+					</if>
+					<else>
+						I docenti di tutte le scuole ti sorridono.
+						<set who="levels" what="school" delta="+10" />
+						<set who="levels" what="consensus" delta="+10" />
+					</else>
+				</description>
+				<set who="checkpoints" what="virusMutated" to="true" />
+				<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>coup</name>
+				<title>Fuoco alle polveri</title>
+				<description>
+				Mentre vieni bersagliato dall'artiglieria ti rinchiudi nel tuo ufficio.
+				Dopo esserti barricato per alcuni minuti, una coltre di fumo di odore pungente riempie l'ufficio.
+			</description>
+				<gameOver />
+			</scene>
+		</scenes>
+		<questions>
+			<question>
+				<if who="checkpoints" what="virusDeveloped" is="true" />
+				<name>fondi_europei_scuola</name>
+				<title>Fondi Europei per la scuola</title>
+				<description>
+					L'unione Europea offre dei fondi per la scuola a patto di integrare i programmi scolastici con quelli degli altri stati
+					<if who="levels" what="consensus" lessThan="50">
+					I tuoi alleati di governo ti guardano con disappunto.
+				</if>
+				</description>
+				<set who="checkpoints" what="virusMutated" to="true" />
+				<choices>
+					<choice>
+						<title>Certo</title>
+						<goto scene="fondi_europei_scuola_yesno" />
+					</choice>
+					<choice>
+						<title>Per niente!</title>
+						<effects>
+							<goto scene="fondi_europei_scuola_yesno" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		</questions>
+	</sections>
+	<viruses>
+		<virus>
+			<name>eys</name>
+			<title>eys-1</title>
+			<description>Descrizione</description>
+			<stats>
+				<transmissionSpeed>1</transmissionSpeed>
+				<lethality>1</lethality>
+				<hospitalizationRate>1</hospitalizationRate>
+			</stats>
+			<infoboxes>
+				<infobox>
+					<title>Infobox1</title>
+					<description>Testo</description>
+				</infobox>
+			</infoboxes>
+		</virus>
+	</viruses>
+	<parties>
+		<party>
+			<name>partito_giallo</name>
+			<title>Partito Giallo</title>
+			<secretary>Domenico Sansovino</secretary>
+			<description>Un partito di centro moderato</description>
+			<motto>Viva la libertàaaaa iaaaaaaaa</motto>
+		</party>
+		<party>
+			<name>no_al_5g</name>
+			<title>No al 5G</title>
+			<secretary>Giovanna Vogheri</secretary>
+			<description>Un partito il cui interesse esclusivo è bandire il 5G, quale emissario di Satana,</description>
+			<motto>Uniti nella nostra APERTURA MENTALE</motto>
+		</party>
+		<party>
+			<name>partito_anarchico</name>
+			<title>Partito anarchico</title>
+			<secretary>Carlo Massimo</secretary>
+			<description>Fanno quello che vogliono</description>
+			<motto>Siamo anarchici ma non quando votiamo</motto>
+		</party>
+		<party>
+			<name>il_popolo_delle_mamme</name>
+			<title>Il popolo delle mamme</title>
+			<secretary>Silvia Pavesini</secretary>
+			<description>Anche questi fanno quello che vogliono </description>
+			<motto>I bambiniiiiiiiii</motto>
+		</party>
+		<party>
+			<name>laser</name>
+			<title>Laser a cinqui euri</title>
+			<secretary>Aieie Brasorx</secretary>
+			<description>Usano i laser in parlamento per accecare l'opposizione</description>
+			<motto>Solo a cinqui euri, beli i laser</motto>
+		</party>
+		<party>
+			<name>totocalcio</name>
+			<title>Totocalcio</title>
+			<secretary>Toto Rinaldi</secretary>
+			<description>Scommettono sulla loro vittoria, per ora hanno solo perso</description>
+			<motto>Scommetti sul tuo futuro (nel frattempo organizziamo i brogli)</motto>
+		</party>
+		<party>
+			<name>forza_vecchia</name>
+			<title>Forza Vecchia</title>
+			<secretary>Federico VII di Salerno</secretary>
+			<description>Medievisti puri</description>
+			<motto>Si stava meglio quando si stava peggio</motto>
+		</party>
+		<party>
+			<name>Ikea</name>
+			<title>Sveglia dell' IKEA</title>
+			<secretary>Äntligen Färgglad</secretary>
+			<description>Nessuno capisce quello che dicono</description>
+			<motto>När är det bäst att besöka oss?</motto>
+		</party>
+		<party>
+			<name>sedia girevole</name>
+			<title>Sedia Girevole</title>
+			<secretary>Francesco Eppson</secretary>
+			<description>Girano tutto il giorno in parlamento sulle poltrone</description>
+			<motto>Uiiiiiiiii haha</motto>
+		</party>
+		<party>
+			<name>basta_powerpoint</name>
+			<title>Basta PowePoint</title>
+			<secretary>Stefano Mansioni</secretary>
+			<description>Odiano PowePoint</description>
+			<motto>BASTA POWERPOINT BASTAAAAAAAAAA: Usate Prezi por favor</motto>
+		</party>
+	</parties>
+	<misc>
+		<welcomeMessage>
+			    
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pretium ullamcorper accumsan. Fusce faucibus facilisis est hendrerit egestas. Nulla in dapibus est. Nunc et nisi arcu. Ut luctus rhoncus arcu, eget cursus mi rhoncus mollis. Proin rutrum dui sit amet hendrerit consequat. Nullam hendrerit, neque sit amet pulvinar vehicula, metus eros consequat nibh, accumsan fermentum lectus dolor ac nunc. Ut vel facilisis orci, non accumsan ligula. Vestibulum vitae ex eu sapien elementum semper at vel sem. Nunc dictum at nisl ut tincidunt. Proin suscipit lectus enim, ut suscipit eros malesuada ac. Donec ac varius ipsum, at viverra tortor. Duis tristique consequat lectus.
+
+Pellentesque elementum sem sed nisi tempus commodo. Sed semper suscipit pellentesque. Duis feugiat pharetra leo, quis commodo nunc convallis at. Nullam efficitur leo nec finibus posuere. Ut a nisi eu felis egestas imperdiet vel eu leo. Phasellus fringilla ligula eget eleifend finibus. Aenean nec purus pellentesque, tristique lorem sit amet, malesuada ligula. Cras eget imperdiet nibh. Praesent placerat bibendum volutpat. Mauris sit amet varius libero, sit amet cursus sem.
+
+Morbi et tempus justo, venenatis facilisis quam. Etiam accumsan bibendum turpis, quis molestie sapien tristique quis. Donec eget turpis neque. Proin semper nisl ac nulla blandit laoreet. Cras non semper massa. Quisque bibendum odio eget libero aliquet posuere. Duis ac odio ac sapien euismod commodo a gravida risus. Vestibulum bibendum erat sed ante blandit luctus.
+
+Proin elit sapien, suscipit eu euismod pharetra, blandit sit amet augue. Etiam hendrerit vel metus vitae consectetur. Quisque eleifend condimentum mi, non congue nibh condimentum pellentesque. Nullam rhoncus diam at urna aliquet accumsan. Donec ultrices diam id nibh vehicula faucibus eget quis nunc. Phasellus vitae lorem metus. Nulla rutrum auctor pretium.
+
+Suspendisse vestibulum euismod neque, et commodo tortor feugiat venenatis. Aenean ullamcorper mauris sed est rhoncus, nec tincidunt velit facilisis. Nullam sit amet ligula pretium nulla semper dapibus at ac nulla. Vestibulum nec tellus lectus. Maecenas nec quam rutrum, faucibus mi vitae, laoreet erat. Mauris ultrices convallis neque, dignissim molestie sem tincidunt a. Nam bibendum, leo eget tincidunt ultricies, orci diam efficitur magna, at sodales orci justo vel purus. Vestibulum ultrices nibh vel est feugiat, nec varius massa eleifend. Sed tristique, erat et vulputate pharetra, metus lectus dapibus massa, a sollicitudin mi nunc eget diam. In posuere justo quis magna sagittis, quis consequat dui eleifend. Nulla placerat pharetra tempor. Maecenas metus eros, ullamcorper id pulvinar quis, accumsan eu nulla.
+
+		</welcomeMessage>
+	</misc>
+</Araldia>
+`;
+
+
+	function print(who, what) {
+		return gameVars[who][what] ? gameVars[who][what] : "";
+	}
+	function set(who, what, delta = null, to = null) {
+		if (delta != null) {
+			gameVars[who][what] += delta;
+		}
+		else {
+			gameVars[who][what] = to;
+		}
+	}
+	function cTagTriggersRecursive(tag) {
+
+	}
+	function cTagEventsRecursive(tag) {
+
+	}
+	function cTagRecursive(tag, html = "") {
+		var currentTag = null;
+		for (var i = 0; tag.childElementCount; i++) {
+			currentTag = tag.childNodes[i];
+			if (currentTag.nodeName == "#text") {
+				html += currentTag.textContent;
+				continue;
+			}
+			if (currentTag.tagName == "if" || currentTag.tagName == "elseif") {
+				if (currentTag.hasAttribute("is")) {
+					if (currentTag.attributes["is"] == gameVars[currentTag.attributes["who"]][currentTag.attributes["what"]]) {
+						for (var i = 0; i < currentTag.childNodes.length; i++) {
+							cTagRecursive(currentTag.childNodes[i], html);
+						}
+
+					}
+				}
+				else if (currentTag.hasAttribute("lessThan")) {
+					if (currentTag.attributes["lessThan"] < gameVars[currentTag.attributes["who"]][currentTag.attributes["what"]]) {
+						for (var i = 0; i < currentTag.childNodes.length; i++) {
+							cTagRecursive(currentTag.childNodes[i], html);
+						}
+
+					}
+				}
+				else if (currentTag.hasAttribute("moreThan")) {
+					if (currentTag.attributes["moreThan"] > gameVars[currentTag.attributes["who"]][currentTag.attributes["what"]]) {
+						for (var i = 0; i < currentTag.childNodes.length; i++) {
+							cTagRecursive(currentTag.childNodes[i], html);
+						}
+
+					}
+
+				}
+				else if (currentTag.hasAttribute("lessOrEqual")) {
+					if (currentTag.attributes["lessOrEqual"] <= gameVars[currentTag.attributes["who"]][currentTag.attributes["what"]]) {
+						for (var i = 0; i < currentTag.childNodes.length; i++) {
+							cTagRecursive(currentTag.childNodes[i], html);
+						}
+
+					}
+				}
+				else if (currentTag.hasAttribute("moreOrEqual")) {
+					if (currentTag.attributes["moreOrEqual"] >= gameVars[currentTag.attributes["who"]][currentTag.attributes["what"]]) {
+						for (var i = 0; i < currentTag.childNodes.length; i++) {
+							cTagRecursive(currentTag.childNodes[i], html);
+						}
+
+					}
+				}
+			}
+			else if(currentTag.tagName == "sectionGroup"){
+				if(currentTag.tagName == "sectionGroup"){
+						
+				}
+			}
+		}
+		return html;
+	}
+	function controlTags(tag) {
+		if (tag.tagName == " triggers") {
+
+		}
+	}
+
+
+	var i = 0, childrenEl = null, tHtml = "";
+	parser = new DOMParser();
+	xmlDoc = parser.parseFromString(text, "text/xml");
+	var cats = xmlDoc.children[0];
+	var values = cats.getElementsByTagName("values")[0];
+	tHtml = `
+<table>
+`;
+	for (i = 0; i < values.childElementCount; i++) {
+		childrenEl = values.children[i];
+		console.log(childrenEl);
+		tHtml += `<tr id="` + childrenEl.getElementsByTagName("name")[0].textContent + `"><td>` + childrenEl.getElementsByTagName("title")[0].textContent + `</td><td class="mtW">&nbsp;&nbsp;&nbsp;<progress  class="nes-progress is-success"  style=" width:400px;" min="` + childrenEl.getElementsByTagName("min")[0].textContent + `" max="` + childrenEl.getElementsByTagName("max")[0].textContent + `" value="` + childrenEl.getElementsByTagName("default")[0].textContent + `"></meter></td><td>` + childrenEl.getElementsByTagName("default")[0].textContent + `/` + childrenEl.getElementsByTagName("max")[0].textContent + `</td></tr>`;
+	}
+	console.log(tHtml);
+	tHtml += "</table>";
+	$("#levels").hide();
+	document.getElementById("levels").innerHTML = tHtml;
+
+	$("#begin").click(function () {
+		if ($("#username").val().length == 0) return false;
+		setTimeout(function () { deAudio(6); }, 100);
+		$("#mainMenu").fadeOut();
+		$("#beginSect").fadeIn();
+		$("#mq").html(`
+	      
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pretium ullamcorper accumsan. Fusce faucibus facilisis est hendrerit egestas. Nulla in dapibus est. Nunc et nisi arcu. Ut luctus rhoncus arcu, eget cursus mi rhoncus mollis. Proin rutrum dui sit amet hendrerit consequat. Nullam hendrerit, neque sit amet pulvinar vehicula, metus eros consequat nibh, accumsan fermentum lectus dolor ac nunc. Ut vel facilisis orci, non accumsan ligula. Vestibulum vitae ex eu sapien elementum semper at vel sem. Nunc dictum at nisl ut tincidunt. Proin suscipit lectus enim, ut suscipit eros malesuada ac. Donec ac varius ipsum, at viverra tortor. Duis tristique consequat lectus.
+
+Pellentesque elementum sem sed nisi tempus commodo. Sed semper suscipit pellentesque. Duis feugiat pharetra leo, quis commodo nunc convallis at. Nullam efficitur leo nec finibus posuere. Ut a nisi eu felis egestas imperdiet vel eu leo. Phasellus fringilla ligula eget eleifend finibus. Aenean nec purus pellentesque, tristique lorem sit amet, malesuada ligula. Cras eget imperdiet nibh. Praesent placerat bibendum volutpat. Mauris sit amet varius libero, sit amet cursus sem.
+
+Morbi et tempus justo, venenatis facilisis quam. Etiam accumsan bibendum turpis, quis molestie sapien tristique quis. Donec eget turpis neque. Proin semper nisl ac nulla blandit laoreet. Cras non semper massa. Quisque bibendum odio eget libero aliquet posuere. Duis ac odio ac sapien euismod commodo a gravida risus. Vestibulum bibendum erat sed ante blandit luctus.
+
+Proin elit sapien, suscipit eu euismod pharetra, blandit sit amet augue. Etiam hendrerit vel metus vitae consectetur. Quisque eleifend condimentum mi, non congue nibh condimentum pellentesque. Nullam rhoncus diam at urna aliquet accumsan. Donec ultrices diam id nibh vehicula faucibus eget quis nunc. Phasellus vitae lorem metus. Nulla rutrum auctor pretium.
+
+Suspendisse vestibulum euismod neque, et commodo tortor feugiat venenatis. Aenean ullamcorper mauris sed est rhoncus, nec tincidunt velit facilisis. Nullam sit amet ligula pretium nulla semper dapibus at ac nulla. Vestibulum nec tellus lectus. Maecenas nec quam rutrum, faucibus mi vitae, laoreet erat. Mauris ultrices convallis neque, dignissim molestie sem tincidunt a. Nam bibendum, leo eget tincidunt ultricies, orci diam efficitur magna, at sodales orci justo vel purus. Vestibulum ultrices nibh vel est feugiat, nec varius massa eleifend. Sed tristique, erat et vulputate pharetra, metus lectus dapibus massa, a sollicitudin mi nunc eget diam. In posuere justo quis magna sagittis, quis consequat dui eleifend. Nulla placerat pharetra tempor. Maecenas metus eros, ullamcorper id pulvinar quis, accumsan eu nulla.
+
+	`);
+	})
+</script>
