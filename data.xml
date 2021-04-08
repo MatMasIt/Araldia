@@ -38,8 +38,44 @@
 				<if is="0">
 					<goto scene="healthGameOver" />
 				</if>
-				<if lessThan="50">
-					<goto scene="healthWarn" />
+			</triggers>
+		</value>
+		<value>
+			<name>school</name>
+			<title>Scuola</title>
+			<description>Il tuo consenso da parte della popolazione. Un indicatore importante</description>
+			<min>0</min>
+			<max>100</max>
+			<default>100</default>
+			<colorZones>
+				<colorZone>
+					<min>0</min>
+					<max>30</max>
+					<color>red</color>
+					<description>Beh, che dire...</description>
+				</colorZone>
+				<colorZone>
+					<min>31</min>
+					<max>50</max>
+					<color>orange</color>
+					<description>Dai...</description>
+				</colorZone>
+				<colorZone>
+					<min>51</min>
+					<max>60</max>
+					<color>yellow</color>
+					<description>Non male</description>
+				</colorZone>
+				<colorZone>
+					<min>61</min>
+					<max>100</max>
+					<color>green</color>
+					<description>Ok</description>
+				</colorZone>
+			</colorZones>
+			<triggers>
+				<if is="0">
+					<goto scene="consensusGameOver" />
 				</if>
 			</triggers>
 		</value>
@@ -97,7 +133,7 @@
 				<title>Nuova variante</title>
 				<description>
 					Il corriere della Pera annuncia l'arrivo di una nuova variante di
-					<print what="virusName" />
+					<print who="virus" what="name" />
 					. La nuova variante è
 					<sectionGroup atLeastOne="true" chance="100">
 						<!--
@@ -204,7 +240,7 @@
 		</scenes>
 		<questions>
 			<question>
-				<if who="checkpoints" what="virusDeveloped" is="true" />
+				<if who="checkpoints" what="virusDeveloped" is="false" />
 				<name>fondi_europei_scuola</name>
 				<title>Fondi Europei per la scuola</title>
 				<description>
@@ -217,7 +253,9 @@
 				<choices>
 					<choice>
 						<title>Certo</title>
+						<effects>
 						<goto scene="fondi_europei_scuola_yesno" />
+						</effects>
 					</choice>
 					<choice>
 						<title>Per niente!</title>
@@ -320,16 +358,8 @@
 		</party>
 	</parties>
 	<misc>
-		<welcomeMessage>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pretium ullamcorper accumsan. Fusce faucibus facilisis est hendrerit egestas. Nulla in dapibus est. Nunc et nisi arcu. Ut luctus rhoncus arcu, eget cursus mi rhoncus mollis. Proin rutrum dui sit amet hendrerit consequat. Nullam hendrerit, neque sit amet pulvinar vehicula, metus eros consequat nibh, accumsan fermentum lectus dolor ac nunc. Ut vel facilisis orci, non accumsan ligula. Vestibulum vitae ex eu sapien elementum semper at vel sem. Nunc dictum at nisl ut tincidunt. Proin suscipit lectus enim, ut suscipit eros malesuada ac. Donec ac varius ipsum, at viverra tortor. Duis tristique consequat lectus.
-
-Pellentesque elementum sem sed nisi tempus commodo. Sed semper suscipit pellentesque. Duis feugiat pharetra leo, quis commodo nunc convallis at. Nullam efficitur leo nec finibus posuere. Ut a nisi eu felis egestas imperdiet vel eu leo. Phasellus fringilla ligula eget eleifend finibus. Aenean nec purus pellentesque, tristique lorem sit amet, malesuada ligula. Cras eget imperdiet nibh. Praesent placerat bibendum volutpat. Mauris sit amet varius libero, sit amet cursus sem.
-
-Morbi et tempus justo, venenatis facilisis quam. Etiam accumsan bibendum turpis, quis molestie sapien tristique quis. Donec eget turpis neque. Proin semper nisl ac nulla blandit laoreet. Cras non semper massa. Quisque bibendum odio eget libero aliquet posuere. Duis ac odio ac sapien euismod commodo a gravida risus. Vestibulum bibendum erat sed ante blandit luctus.
-
-Proin elit sapien, suscipit eu euismod pharetra, blandit sit amet augue. Etiam hendrerit vel metus vitae consectetur. Quisque eleifend condimentum mi, non congue nibh condimentum pellentesque. Nullam rhoncus diam at urna aliquet accumsan. Donec ultrices diam id nibh vehicula faucibus eget quis nunc. Phasellus vitae lorem metus. Nulla rutrum auctor pretium.
-
-Suspendisse vestibulum euismod neque, et commodo tortor feugiat venenatis. Aenean ullamcorper mauris sed est rhoncus, nec tincidunt velit facilisis. Nullam sit amet ligula pretium nulla semper dapibus at ac nulla. Vestibulum nec tellus lectus. Maecenas nec quam rutrum, faucibus mi vitae, laoreet erat. Mauris ultrices convallis neque, dignissim molestie sem tincidunt a. Nam bibendum, leo eget tincidunt ultricies, orci diam efficitur magna, at sodales orci justo vel purus. Vestibulum ultrices nibh vel est feugiat, nec varius massa eleifend. Sed tristique, erat et vulputate pharetra, metus lectus dapibus massa, a sollicitudin mi nunc eget diam. In posuere justo quis magna sagittis, quis consequat dui eleifend. Nulla placerat pharetra tempor. Maecenas metus eros, ullamcorper id pulvinar quis, accumsan eu nulla.
+		<welcomeMessage scrollDelay="400" duration="10" direction="up">
+		Testo di prova
 		</welcomeMessage>
 	</misc>
 </Araldia>
