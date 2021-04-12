@@ -8,9 +8,9 @@ I sindacati esercitano una forte pressione per impedire che ciò accada.
 
 ### Impedisci lo spostamento con incentivi statali
 economia: -10
+
 consenso: +10
 
 ### Ah perchè in italia si lavora anche?
 
-economia: +15
-consenso: -15
+consenso: -5
