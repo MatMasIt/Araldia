@@ -4,7 +4,7 @@ Un nave che trasportava petrolio ha riportato una faglia nello scafo dopo essers
 Cosa fai?
 ## Opzioni
 
-### Ottieni che la nave venga riparata e 
+### Ottieni che la nave venga riparata
 +10 consenso
 
 -10 economia
