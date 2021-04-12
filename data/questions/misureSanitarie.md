@@ -5,7 +5,9 @@ Cosa decidi?
 
 ### Accetti la richiesta, nonostante il costo
 +10 salute
+
 -10 economia
 ### Rifiuti la richiesta, per poter utilizzare il denaro diversamente
 +10 economia
+
 -10 economia
