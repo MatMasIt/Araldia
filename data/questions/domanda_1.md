@@ -1,1 +1,0 @@
-# Domanda di prova
