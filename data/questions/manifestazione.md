@@ -8,8 +8,10 @@ Che cosa fai?
   
 ### Disperdi i manifestanti
 +10 sicurezza
+
 -10 consenso
 ### Accetti che una delegazione venga a discutere all'interno del Palazzo
 +5 consenso
+
 -5 sicurezza
 
