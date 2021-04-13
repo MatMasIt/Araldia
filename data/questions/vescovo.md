@@ -5,11 +5,17 @@ Come ti comporti?
 ## Opzioni
 
 ### Accetti la richiesta e insabbi la questione
+50% chance
+
 -20 consenso
-50% chance Il reato viene scoperto dal giornalista {NOME DEL GIORNALISTA} che ti accusa pubblicamente.
+
+Il reato viene scoperto dal giornalista {NOME DEL GIORNALISTA} che ti accusa pubblicamente.
+
+50% chance
 
 +5 consenso
-50% chance Il reato viene insabbiato con successo e il vescovo a contribuire alla tua propaganda
+
+Il reato viene insabbiato con successo e il vescovo a contribuire alla tua propaganda
 ### Rifiuti la richiesta e lo denunci pubblicamente, pur sapendo lo scompiglio che ciò porterebbe
 +10 consenso
 
