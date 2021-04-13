@@ -12,9 +12,6 @@ Viene condannato in primo grado.
 
 Consenso: -15
 
-Sicurezza: -6
-
-
 Viene assolto in primo grado:
 
 Consenso: +5
@@ -34,6 +31,6 @@ Sicurezza: +10
 
 Viene assolto in primo grado:
 
-Consenso: -10
+Consenso: -15
 
-Sicurezza: -6
+
