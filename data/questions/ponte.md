@@ -1,5 +1,5 @@
 # Crollo ponte Gianni 
-Il Ponte Gianni è corllato da un mese ormai. I cittadini ti chiedono di trovare il colpevole
+Il Ponte Gianni è crollato da un mese ormai. I cittadini ti chiedono di trovare il colpevole
 Come desideri procedere?
 ## Opzioni
 
