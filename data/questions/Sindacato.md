@@ -1,5 +1,5 @@
 # Sindacati
-Il Presidente del Sindacato dei Lavoratori Part-Time {NOME DEL PRESIDENTE} ti chiede un incontro per stabilire un punto di incontro sulle condizioni lavorative di coloro che rappresenta.
+Il Presidente del Sindacato dei Lavoratori Part-Time {NOME DEL PRESIDENTE} ti chiede un incontro per stabilire un punto di accordo sulle condizioni lavorative di coloro che rappresenta.
 
 Cosa fai?
 ## Opzioni
