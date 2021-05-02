@@ -10,4 +10,4 @@ Cosa decidi?
 ### Rifiuti la richiesta, per poter utilizzare il denaro diversamente
 +10 economia
 
--10 economia
+-10 salute
