@@ -1,4 +1,4 @@
-# COVIDDI-21
+# Laboravirus
 ## Livelli
 * letalità: 2%
 * Rt: 3
