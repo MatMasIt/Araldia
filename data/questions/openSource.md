@@ -18,4 +18,4 @@ Economia +10
 ### Procediamo con un cambiamento graduale
 Consenso: +5
 
-Economia: è5
+Sicurezza +10
