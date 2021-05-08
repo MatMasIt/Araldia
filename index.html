@@ -2145,7 +2145,7 @@ function gameOver(){
 
 			var data = google.visualization.arrayToDataTable([
           ['Categoria', 'Persone'],
-          ['Sani',     60000000],
+          ['Sani',     6000000],
           ['Infetti',      0],
           ['Immuni',  0],
           ['Morti', 0]
@@ -2412,7 +2412,7 @@ function gameOver(){
 		
 
 		*/
-		var peopleTot=60000000,dd=0,inffactor=(0.20+0.01*randomInteger(0,10));
+		var peopleTot=6000000,dd=0,inffactor=(0.20+0.01*randomInteger(0,10));
 		var inf= gameVars["virus"]["people"]["infected"];
 		gameVars["virus"]["people"]["infected"]=inf*(gameVars["virus"]["Rt"]+1);
 		gameVars["virus"]["people"]["infected"]-=inf;
@@ -2451,7 +2451,7 @@ function gameOver(){
 		gameVars["virus"]["people"]["dead"]=0;
 		gameVars["virus"]["people"]["immune"]=0;
 		gameVars["virus"]["people"]["infected"]=randomInteger(30,200);
-		gameVars["virus"]["people"]["healthy"]=60000000;
+		gameVars["virus"]["people"]["healthy"]=6000000;
 
 		gameVars["virus"]["title"] = title;
 		gameVars["virus"]["infoboxLastI"] = 0;
