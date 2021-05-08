@@ -8,9 +8,20 @@
 <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script>
+	   google.charts.load('current', {'packages':['corechart']});
+  
+
+   </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <style>
+	.wbb {
+		width: 60vw;
+		word-break: break-word;
+	}
+
 	#levels {
 		font-size: 27px;
 	}
@@ -35,16 +46,22 @@
 		background-color: black;
 		/*cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAoAAQCoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/AAAA/wAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf94Ek3/AAAA/wAAAAAAAAAAAAAAAwAAAAEAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/6Yfbv94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/ph9u/6Yfbv94Ek3/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf+mH27/xDGH/6Yfbv94Ek3/eBJN/3gSTf94Ek3/eBJN/3gSTf94Ek3/eBJN/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/6Yfbv/EMYf/xDGH/6Yfbv+mH27/ph9u/6Yfbv+mH27/ph9u/3gSTf8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/ph9u/8Qxh//HRJD/xDGH/8Qxh//EMYf/xDGH/6Yfbv94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf+mH27/xDGH/8dEkP/WZaf/x0SQ/8Qxh/+mH27/eBJN/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/6Yfbv/EMYf/x0SQ/8dEkP/EMYf/ph9u/3gSTf8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/ph9u/8Qxh//HRJD/xDGH/6Yfbv94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf+mH27/xDGH/8Qxh/+mH27/eBJN/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/6Yfbv/EMYf/ph9u/3gSTf8AAAD/AAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/ph9u/6Yfbv94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/3gSTf+mH27/eBJN/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/eBJN/3gSTf8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP94Ek3/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA///////////////////////////////////////////////////////v////5////+P////h////4P///+AAP//gAH//4AD//+AB///gA///4Af//+AP///gH///4D///+B////g////4f///+P////n////7/////////////8='), auto; 
 */
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+		-webkit-touch-callout: none;
+		/* iOS Safari */
+		-webkit-user-select: none;
+		/* Safari */
+		-khtml-user-select: none;
+		/* Konqueror HTML */
+		-moz-user-select: none;
+		/* Old versions of Firefox */
+		-ms-user-select: none;
+		/* Internet Explorer/Edge */
+		user-select: none;
+		/* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 	}
 
-	*{
+	* {
 		background-color: black;
 		color: white;
 		/*
@@ -93,8 +110,8 @@
 		background-repeat: repeat-x;
 		animation: slideleft 6000s infinite linear;
 		-webkit-animation: slideleft 6000s infinite linear;
-		width: 900px;
-		height: 500px;
+		max-width: 900px;
+		height: 30vh;
 	}
 
 
@@ -115,36 +132,62 @@
 		box-sizing: border-box;
 		animation: marquee 15s linear infinite;
 	}
-	#error{
-		position:absolute;
-		top:100px;
-		left:90px;
-		width:800px;
-		height:500px;
-		background-color:red;
-		display:none;
-		z-index:99;
+
+	#error {
+		position: absolute;
+		top: 100px;
+		left: 90px;
+		width: 800px;
+		height: 500px;
+		background-color: red;
+		display: none;
+		z-index: 99;
 	}
+
+	#countV {
+		position: fixed;
+		top: 10px;
+		right: 11vw;
+		width: 10vw;
+		max-height:350px;
+		display: none;
+		z-index: 99;
+		background-color: transparent;
+	}
+
 	#beginSect {
 		display: none;
 	}
-	#tooTpk {
-	  position: absolute;
-	  z-index: 9;
-	  display:none;
-	}
-	#splash{
-		position: absolute;
-		top:0;
-		bottom:0;
-		z-index: 99999;
+		#beginSect2 {
+		display: none;
+		position: fixed;
+		top:0px;
+		right:0px;
 		height:100vh;
 		width:100vw;
+		z-index:9999;
 	}
-	#splashImg{
-		display:none;
+
+	#tooTpk {
+		position: absolute;
+		z-index: 9;
+		display: none;
 	}
-	</style>
+
+	#splash {
+		position:fixed;
+		top: 0;
+		bottom: 0;
+		z-index: 99999;
+		height: 100vh;
+		width: 100vw;
+	}
+
+	#splashImg {
+		display: none;
+	}
+</style>
+
 <body>
 	<div id="splash">
 		<center>
@@ -170,24 +213,31 @@
 			<img src="mdglogo.png" id="splashImg" />
 		</center>
 	</div>
-	<div class="nes-container is-rounded is-dark" id="tooTpk" >
+	<div class="nes-container is-rounded is-dark" id="tooTpk">
 		<p id="tooltT">Good morning. Thou hast had a good night's sleep, I hope.</p>
-	  </div>
+	</div>
+	<div class="nes-container with-title is-centered" id="countV">
+		<p class="title" style="background-color: black;" id="vName"></p>
+		<i id="vDesc"></i>
+		<iv id="cts"></div>
+	</div>
 	<div class="nes-container with-title is-centered" id="error">
 		<p class="title" style="background-color: black;">Errore!</p>
 		<p id="errorData"></p>
-		<button  type="button" class="nes-btn " onclick="error();">Chiudi</button><br />
+		<button type="button" class="nes-btn " onclick="error();">Chiudi</button><br />
 		<i>Controlla la console per più informazioni</i>
-	  </div>
-	  <script>
-		  function error(){
+	</div>
+	<script>
+		function error() {
 			$(this).parent().hide();
-			if(deadlyError){
+			if (deadlyError) {
 				location.reload();
 			}
-		  }
-	  </script>
+		}
+	</script>
 	<header>
+		<br />
+		<br />
 		<h1>Araldia</h1>
 		<i>Presidente, abbiamo bisogno del suo aiuto!</i>
 		<center>
@@ -202,12 +252,30 @@
 	<br />
 	<br />
 	<br />
+	<br />
+	<br />
+	<br />
+		<div id="beginSect2">
+				<br />
+				<marquee width="60%" direction="up" height="400px;" scrolldelay="400" id="mq2">
+				</marquee>
+			</div>
 	<div id="content">
 		<center>
+			<div id="virusBeginOhNo" class="closableVir"> </div>
 			<div id="mainMenu">
 				<div id="masthead"></div>
 				<br />
 				<input type="text" placeholder="Nome" id="username" class="nes-input is-dark" style="width:300px"><br />
+				<div class="nes-select is-dark" style="width:300px">
+					<select required id="dfficultySelect">
+						<option value="30">Mammina aiuto</option>
+						<option value="40">Difficile</option>
+						<option value="50" selected>Normale</option>
+						<option value="60">Facile</option>
+						<option value="70">Potresti anche non giocare a questo punto</option>
+					</select>
+				</div>
 				<button id="begin" class="nes-btn">All'ufficio</button>
 			</div>
 			<div id="beginSect">
@@ -220,6 +288,9 @@
 			</div>
 		</center>
 	</div>
+	<br />
+	<br />
+
 	<footer>
 		<h5><span style="display:inline-block;transform: rotate(180deg);">&copy;</span> 2021, Mattia Mascarello, Diego
 			Scanavino, Giacomo Roggero</h5>
@@ -230,32 +301,37 @@
 
 </html>
 <script>
-	var gameVars = {};
+	var gameVars = {
+		"player": {
+			"name": "",
+			"actionN": 0
+		}
+	};
 
 	var audio = null;
-	
+
 	var bool = false;
 	addEventListener("click", function () {
 		$("#clicktobeg").hide();
-		document.getElementsByTagName("body")[0].requestFullscreen();
+		document.documentElement.requestFullscreen();
 		if (bool) return false;
 		if (!bool) bool = true;
 		$("#splashImg").show();
-		initSplash(0,function ok() {
+		initSplash(0, function ok() {
 			audio = new Audio('music/beepintro.mp3');
 			audio.play();
 			setTimeout(function () {
 				$("#splash").fadeOut();
-				audio.src= 'music/Rolemusic - The Black Kitty.mp3';
-				audio.loop=true;
+				audio.src = 'music/Rolemusic - The Black Kitty.mp3';
+				audio.loop = true;
 				audio.play();
 			}, 3000);
 		});
-		
+
 	});
 	function deAudio(time = 10) {
 		try {
-			console.log(audio.volume);
+			//console.log(audio.volume);
 			if (audio.volume > 0) {
 				audio.volume -= 0.01;
 				setTimeout(deAudio, 10 * time);
@@ -272,222 +348,58 @@
 		<value>
 			<name>health</name>
 			<title>Salute</title>
-			<description>Il livello di salute della popolazione. Un indicatore importante</description>
+			<description>Coff.. coff.. Una poplazione in salute potrebbe essere utile</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
-			<colorZones>
-				<colorZone>
-					<min>0</min>
-					<max>30</max>
-					<color>red</color>
-					<description>Beh, che dire...</description>
-				</colorZone>
-				<colorZone>
-					<min>31</min>
-					<max>50</max>
-					<color>orange</color>
-					<description>Dai...</description>
-				</colorZone>
-				<colorZone>
-					<min>51</min>
-					<max>60</max>
-					<color>yellow</color>
-					<description>Non male</description>
-				</colorZone>
-				<colorZone>
-					<min>61</min>
-					<max>100</max>
-					<color>green</color>
-					<description>Ok</description>
-				</colorZone>
-			</colorZones>
-			<triggers>
-				<if is="0">
-					<goto scene="healthGameOver" />
-				</if>
-			</triggers>
 		</value>
 		<value>
-			<name>school</name>
-			<title>Scuola</title>
-			<description>Il tuo consenso da parte della popolazione. Un indicatore importante</description>
+			<name>economy</name>
+			<title>Economia</title>
+			<description>Potresti voler guardare questo indicatore ogni tanto</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
-			<colorZones>
-				<colorZone>
-					<min>0</min>
-					<max>30</max>
-					<color>red</color>
-					<description>Beh, che dire...</description>
-				</colorZone>
-				<colorZone>
-					<min>31</min>
-					<max>50</max>
-					<color>orange</color>
-					<description>Dai...</description>
-				</colorZone>
-				<colorZone>
-					<min>51</min>
-					<max>60</max>
-					<color>yellow</color>
-					<description>Non male</description>
-				</colorZone>
-				<colorZone>
-					<min>61</min>
-					<max>100</max>
-					<color>green</color>
-					<description>Ok</description>
-				</colorZone>
-			</colorZones>
-			<triggers>
-				<if is="0">
-					<goto scene="consensusGameOver" />
-				</if>
-			</triggers>
 		</value>
 		<value>
 			<name>consensus</name>
 			<title>Consenso</title>
-			<description>Il tuo consenso da parte della popolazione. Un indicatore importante</description>
+			<description>Il tuo consenso da parte della popolazione. Se vuoi fare qualcosa davvero ti può essere d'aiuto</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
-			<colorZones>
-				<colorZone>
-					<min>0</min>
-					<max>30</max>
-					<color>red</color>
-					<description>Beh, che dire...</description>
-				</colorZone>
-				<colorZone>
-					<min>31</min>
-					<max>50</max>
-					<color>orange</color>
-					<description>Dai...</description>
-				</colorZone>
-				<colorZone>
-					<min>51</min>
-					<max>60</max>
-					<color>yellow</color>
-					<description>Non male</description>
-				</colorZone>
-				<colorZone>
-					<min>61</min>
-					<max>100</max>
-					<color>green</color>
-					<description>Ok</description>
-				</colorZone>
-			</colorZones>
-			<triggers>
-				<if is="0">
-					<goto scene="consensusGameOver" />
-				</if>
-				<if lessThan="50">
-					<goto scene="consensusWarn" />
-				</if>
-			</triggers>
+		</value>
+		<value>
+			<name>security</name>
+			<title>Sicurezza</title>
+			<description>Sono al sicuro in parlamento. Vero?</description>
+			<min>0</min>
+			<max>100</max>
+			<default>100</default>
 		</value>
 	</values>
 	<sections>
 		<events>
-			<event frames="3" chance="10">
-				<!--
-				Ogni 3 schermate sorteggia, chance è la percentuale di probabilità che questo evento accada
-				-->
-				<if who="checkpoints" what="virusDeveloped" is="true" />
-				<name>new_variant</name>
-				<title>Nuova variante</title>
-				<description>
-					Il corriere della Pera annuncia l'arrivo di una nuova variante di
-					<print who="virus" what="name" />
-					. La nuova variante è
-					<sectionGroup atLeastOne="true" chance="100">
-						<!--
-						uno e uno soltanto di questi eventi avverrà sicuramente
-						-->
-						<section chance="10">
-							più letale del 10%
-							<set who="virus" what="lethal" delta="+10" />
-						</section>
-						<section chance="10">
-							meno letale del 10%
-							<set who="virus" what="lethal" delta="-10" />
-						</section>
-					</sectionGroup>
-				</description>
-				<set who="checkpoints" what="virusMutated" to="true" />
-				<choices>
-					<choice>
-						<title>Ho capito</title>
-						<effects>
-							<goto question="next" />
-						</effects>
-					</choice>
-				</choices>
-			</event>
-			<event frames="20" chance="45">
-				<if who="levels" what="consensus" lessThan="25" />
-				<name>crisi_di_governo</name>
-				<title>Crisi di governo</title>
-				<description>
-
-					<sectionGroup atLeastOne="true" chance="100">
-						<section chance="40">
-							A causa del
-							<print what="virusName" />
-							, il partito
-							<print who="parties" what="rand" />
-							ha deciso di innescare una crisi di governo.
-							Per fortuna i tuoi alleati ti sostengono e ne esci quasi illeso.
-							<set who="levels" what="consensus" delta="-5" />
-						</section>
-						<section chance="50">
-							A causa del
-							<print what="virusName" />
-							, il partito
-							<print who="parties" what="rand" />
-							ha deciso di innescare una crisi di governo.
-							Il tuo governo subisce un reimpasto.
-							<set who="levels" what="consensus" delta="-10" />
-						</section>
-						<section chance="10">
-							A causa della tua gestione del
-							<print what="virusName" />
-							, l'esercito tenta un colpo di stato.
-							<goto scene="coup" />
-						</section>
-					</sectionGroup>
-				</description>
-				<choices>
-					<choice>
-						<title>Ok</title>
-						<effects>
-							<goto question="next" />
-						</effects>
-					</choice>
-				</choices>
-			</event>
 		</events>
 		<scenes>
 			<scene>
-				<name>fondi_europei_scuola_yesno</name>
-				<title>Detto fatto</title>
+				<name>drogaStay</name>
+				<title>Scandalo di Governo</title>
 				<description>
-					<if who="checkpoints" what="consensus" lessThan="50">
-						I tuoi alleati di governo ti guardano con disappunto.
-						<set who="levels" what="school" delta="+5" />
-						<set who="levels" what="consensus" delta="-5" />
-					</if>
-					<else>
-						I docenti di tutte le scuole ti sorridono.
-						<set who="levels" what="school" delta="+10" />
-						<set who="levels" what="consensus" delta="+10" />
-					</else>
-				</description>
-				<set who="checkpoints" what="virusMutated" to="true" />
-				<choices>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-15" />
+											Viene condannato in primo grado
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+10" />
+											<set who="levels" what="security" delta="+5" />
+											Viene assolto in primo grado
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
 					<choice>
 						<title>Ok</title>
 						<effects>
@@ -497,62 +409,1163 @@
 				</choices>
 			</scene>
 			<scene>
-				<name>coup</name>
-				<title>Fuoco alle polveri</title>
+				<name>drogaGo</name>
+				<title>Scandalo di Governo</title>
 				<description>
-				Mentre vieni bersagliato dall'artiglieria ti rinchiudi nel tuo ufficio.
-				Dopo esserti barricato per alcuni minuti, una coltre di fumo di odore pungente riempie l'ufficio.
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+10" />
+										<set who="levels" what="security" delta="+10" />
+											Viene condannato in primo grado
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-15" />
+											Viene assolto in primo grado
+								</section>
+								
+							</sectionGroup>
 			</description>
-				<gameOver />
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>scandolaStay</name>
+				<title>Scandalo di Governo</title>
+				<description>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-15" />
+											Viene condannato in primo grado
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+5" />
+										<set who="levels" what="security" delta="+5" />
+											Viene assolto in primo grado
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>RandVacc</name>
+				<title>Vaccino</title>
+					<description>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="health" delta="-15" />
+										Il vaccino fallisce e muoino 50'000 persone
+								</section>
+								<section chance="50">
+										<set who="levels" what="health" delta="+20" />
+											Il  vaccino risulta particolarmente efficace
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>scandolaGo</name>
+				<title>Scandalo di Governo</title>
+				<description>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+10" />
+										<set who="levels" what="security" delta="+10" />
+											Viene condannato in primo grado
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-15" />
+											Viene assolto in primo grado
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>randVesc</name>
+				<title>Vescovo di Napoly</title>
+				<description>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-20" />
+											Il reato viene scoperto dal giornalista Aldo Giacomi, che ti accusa pubblicamente
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+5" />
+											Il reato viene insabbiato con successo e il vescovo contribuisce alla tua propaganda
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
 			</scene>
 		</scenes>
 		<questions>
 			<question>
-				<if who="checkpoints" what="virusDeveloped" is="false" />
-				<name>fondi_europei_scuola</name>
-				<title>Fondi Europei per la scuola</title>
+				<name>misureRestrittive</name>
+				<title>Misure restrittive</title>
 				<description>
-					L'unione Europea offre dei fondi per la scuola a patto di integrare i programmi scolastici con quelli degli altri stati
-					<if who="levels" what="consensus" lessThan="50">
-					I tuoi alleati di governo ti guardano con disappunto.
-				</if>
+				Considerata l'attuale situazione epidemiologica, è necessario rafforzare le misure restrittive?
 				</description>
-				<set who="checkpoints" what="virusMutated" to="true" />
 				<choices>
 					<choice>
-						<title>Certo</title>
+						<title>Sì</title>
 						<effects>
-						<goto scene="fondi_europei_scuola_yesno" />
+							<goto question="next" />
+							<set who="levels" what="economy" delta="-10" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="virus" what="Rt" delta="-0,2" />
 						</effects>
 					</choice>
 					<choice>
-						<title>Per niente!</title>
+						<title>No</title>
 						<effects>
-							<goto scene="fondi_europei_scuola_yesno" />
+							<goto question="next" />
+							<set who="levels" what="economy" delta="+10" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="virus" what="Rt" delta="+0,2" />
 						</effects>
 					</choice>
 				</choices>
 			</question>
+			<question>
+				<name>CrostaSconcordia</name>
+				<title>Nave incagliata</title>
+				<description>
+					La nave Crosta Discordia è rimasta incagliata a largo dell'isola del Ciglio, con a capo il Comandante Scattino. Lo scafo ha imbarcato acqua e la nave potrebbe affondare
+					<br />
+					Che cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Fai sì che la nave venga rimossa e le sue parti riutilizzate</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+15" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>No, costa troppo rimuoverla, meglio lasciarla lì</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-15" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>Partitini</name>
+				<title>Riforma elettorale</title>
+				<description>
+					Un gruppo di alcuni senatori e deputati ha proposto una riforma costituzionale al sistema elettorale, che sfavorirebbe i partiti di piccole dimensioni
+					<br />
+					Come desideri procedere?
+				</description>
+				<choices>
+					<choice>
+						<title>Ti dichiari favorevole</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Meglio osteggiare la riforma, d'altronde alcuni partiti che fanno parte della tua allenaza sono piuttosto ridotti</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>Sindacati</name>
+				<title>Sindacati</title>
+				<description>
+					Il Presidente del Sindacato dei Lavoratori Part-Time, Sergio Costa, ti chiede un incontro per stabilire un punto di accordo sulle condizioni lavorative di coloro che rappresenta
+				</description>
+				<choices>
+					<choice>
+						<title>Che dialogo inutile, sarebbe tempo sprecato</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="economy" delta="+10" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Va bene, incontriamoci!</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="economy" delta="-10" />
+							<set who="levels" what="consensus" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>Sparatoria in centro a Milano</name>
+				<title>>Sparatoria in centro a Milano</title>
+				<description>
+					Un poliziotto fuori servizio di nome Giorgio Sinodi ha utilizzato la sua pistola d'ordiananza per uccidere la moglie che lo aveva precedentemente tradito.
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Niente, non sono affari miei</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ti esponi pubblicamente a favore del poliziotto</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-15" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>antipandemia1</name>
+				<title>Antipandemia</title>
+				<description>
+					Il Ministro della Salute ti chiede di stanziare fondi per la prevenzione della malattia.
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta, nonostante il costo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="levels" what="economy" delta=" -10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti la richiesta, per poter utilizzare il denaro diversamente</title>
+						<effects>
+							<goto question="next" />
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="economy" delta=" +10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>Autostrade</name>
+				<title>Autostrade</title>
+				<description>
+					Il Ministro dei Trasporti ti chiede di stanziare fondi per la manutenzione delle autostrade.        </description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta, nonostante il costo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="sicurezza" delta="+10" />
+							<set who="levels" what="economy" delta=" -10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti la richiesta, per poter utilizzare il denaro diversamente</title>
+						<effects>
+							<goto question="next" />
+							<goto question="next" />
+							<set who="levels" what="economy" delta="-10" />
+							<set who="levels" what="health" delta=" +10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>Cesaropapismo</name>
+				<title>Cesaropapismo</title>
+				<description>
+					La Chiesa Assiomatica si propone di procacciarti il supporto della popolazione, pur di impedire la ricerca sulle cellule embrionali.
+					<br />
+					Cosa decidi di fare?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti la proposta</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="consensus" delta=" +10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Beh ecco...</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="health" delta=" +10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>cesaropapismo</name>
+				<title>Cesaropapismo</title>
+				<description>
+					La Chiesa Assiomatica si propone di procacciarti il supporto della popolazione, pur di impedire la ricerca sulle cellule embrionali.
+					<br />
+					Cosa decidi di fare?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti la proposta</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="consensus" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Beh ecco...</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="health" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>crocifissi</name>
+				<title>Crocifissi nelle scuole</title>
+				<description>
+					Un gruppo crescente di persone ti chiede di considerare se tenere o rimuovere i crocifissi nelle scuole.
+				</description>
+				<choices>
+					<choice>
+						<title>Ci penso immediatamente</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Certo ! (Magari il prossimo governo se ne occuperà)</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>crocifissi</name>
+				<title>Crocifissi nelle scuole</title>
+				<description>
+					Un gruppo crescente di persone ti chiede di considerare se tenere o rimuovere i crocifissi nelle scuole.
+				</description>
+				<choices>
+					<choice>
+						<title>Ci penso immediatamente</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Certo ! (Magari il prossimo governo se ne occuperà)</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>desertificazione</name>
+				<title>Desertificazione </title>
+				<description>
+					La regione della Sciglia si sta progressivimanente desertificando
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Non ci possiamo fare nulla</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="economy" delta="-5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Facciamo qualcosa!</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="economy" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>droga</name>
+				<title>Caso di droga nella tua alleanza di Parlamento</title>
+				<description>
+					Il tuo ministro dell'interno, Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo italiano
+					<br />
+					Come desideri procedere?
+				</description>
+				<choices>
+					<choice>
+						<title>Rimane in ufficio finchè condannato, sempre che sia colpevole</title>
+						<effects>
+							<goto scene="drogaStay" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Fuori dal mio governo</title>
+						<effects>
+							<goto scene="drogaGo" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>esercito</name>
+				<title>Nuove forze armate?</title>
+				<description>
+					Il Generale Padruolo ti propone di finanziare delle attività funzionali al rafforzamento dell'esercito italiano
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti e concedi il finanzimento</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti senza dilungarti troppo sulle motivazioni</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>fallimento</name>
+				<title>Fallimento di Jovani S.p.A.</title>
+				<description>
+					Elettrotecnica Jovani S.p.A., una grande realtà industriale con sede a Drato, sta spostando tutti i suoi impianti produttivi in Bangladesh.
+					<br />
+					I sindacati esercitano una forte pressione per impedire che ciò accada.
+				</description>
+				<choices>
+					<choice>
+						<title>Impedisci lo spostamento con incentivi statali</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ah perchè in italia si lavora anche?</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>femministe1</name>
+				<title>Movimento femminista</title>
+				<description>
+					Il partito %randPartyName%, sostenitore dei diritti delle donne, chiede uguaglianza tra gli stipendi di colleghi di differente sesso.
+					<br />
+					Il Ministro del Lavoro Giorgio Crispi lascia a te la scelta finale.
+				</description>
+				<choices>
+					<choice>
+						<title>Accogli con gioia la richiesta e prendi provvedimenti</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ritieni che sia una condizione già in atto</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>fuggitivo</name>
+				<title>Fuggitivo proveniente dalla Francia</title>
+				<description>
+					Un noto criminale è riuscito a fuggire da un carcere di massima sicurezza in Francia, recandosi in Italia. La Francia ti chiede di cercarlo all'interno tuoi confini.
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Porti avanti una ricerca nelle regioni limitrofe al confine</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="+5" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Decidi che non ne vale il costo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="security" delta="-5" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>giornalista</name>
+				<title>Giornalista ficcanaso</title>
+				<description>
+					Il giornalistaGirolamo Preti ha scritto un articolo sulla tua attuale gestione del Paese
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti le critiche e lo inviti a discuterne meglio di fronte ad una tazza di Caffé</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+		
+					<choice>
+						<title>Ti dimostri fortemente irritato dalle sue affermazioni ed eviti il dialogo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+						</effects>
+					</choice>
+		
+					<choice>
+						<title>Lo attacchi pubblicamente e lo fai licenziare grazie alla tua influenza</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="+5" />
+							<set who="levels" what="consensus" delta="-15" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>hello.joke</name>
+				<title>Is there anybody in there?</title>
+				<description>
+					Out of the corner of my eye
+		
+					I turned to look but it was gone
+					
+					I cannot put my finger on it now
+					
+					The child is grown
+					
+					The dream is gone
+					
+					I have become comfortably numb
+				</description>
+				<choices>
+					<choice>
+						<title>What?</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Cosa?</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>inParlamento</name>
+				<title>In parlamento</title>
+				<description>
+				   %randPartyName%, segretario di %randPartySecretary%, critica l'operato del tuo governo riguardo alla scuola.
+				</description>
+				<choices>
+					<choice>
+						<title> Haha, un paritino del 4%</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="security" delta="-5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Cos'è la scuola?</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="security" delta="+5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Non è vero</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="-3" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>milva</name>
+				<title>Stabilimento MIlva</title>
+				<description>
+					Uno stabilimento della Milva locato a Traranto sta causando un aumento consistente dei casi di cancro in tutta la popolazione la circostante.
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Proponi la chiusura dello stabilimento</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Insisti sulla necessità di mantenere operativo lo stabilimento</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+				<choice>
+					<title>Istituisci un commissario che si occupi della questione</title>
+					<effects>
+						<goto question="next" />
+					</effects>
+				</choice>
+			</question>
+		
+		
+		
+			<question>
+				<name>manifestazione</name>
+				<title>Manifestazione di fronte a Palazzo Thigi</title>
+				<description>
+					Un gruppo di persone sta generando scompiglio di fronte alla sede della Presidenza del Consiglio, in protesta per le attuali condizioni lavorative.
+					<br />
+					Che cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Disperdi i manifestanti</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="+10" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Accetti che una delegazione venga a discutere all'interno del Palazzo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="-5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>misureSanitarie</name>
+				<title>Misure sanitarie</title>
+				<description>
+					Il Ministro della Salute ti chiede di stanziare fondi per misure sanitarie più stringenti
+					<br />
+					Cosa decidi?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta, nonostante il costo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ritieni che sia una condizione già in atto</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>Monsatero</name>
+				<title>Monastero</title>
+				<description>
+					Il Phapa ti propone la ristrutturazione di un antico monastero situato sugli appennini. Uhmm....
+				</description>
+				<choices>
+					<choice>
+						<title>Acconsenti e concedi il denaro</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Declini, invitando il Phapa ad attuare il rinnovamento del monastero con i propri fondi</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>open</name>
+				<title>Open Source</title>
+				<description>
+					Il ministro per la trasformazione digitale propone di imporre l'utilizzo di software open source per tutti gli enti pubblici
+				</description>
+				<choices>
+					<choice>
+						<title>Cambiate tutto subito</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-15" />
+						</effects>
+					</choice>
+					<choice>
+						<title>No, è troppo complicato</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Procediamo con un cambiamento graduale</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>ostruzionismo</name>
+				<title>Ostruzionismo in parlamento</title>
+				<description>
+				   
+					Il partito %randPartyName% si oppone alla messa in atto di misure restrittive da parte del tuo governo.
+		
+					%randPartySecretary%, in un'intervista radiofonica ha dichiarato
+					
+					«%playerName% è un incompetente autoritario e deve essere fermato il prima possibile»
+					
+					Come pensi di reagire a quest'accusa
+		
+				</description>
+				<choices>
+					<choice>
+						<title>Cerca di negoziare con %randPartyName%</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="health" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Prenditi gioco di %randPartySecretary% in diretta televisiva in un programma di Phazio</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="health" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>petroliera</name>
+				<title>Petroliera incagliata</title>
+				<description>
+					Un nave che trasportava petrolio ha riportato una faglia nello scafo dopo essersi scontrata ed incagliata nella costa amalfitana, cominciando a riversare il suo contenuto nel mare.
+								<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Ottieni che la nave venga riparata</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Non prendi altre contromisure</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>ponte</name>
+				<title>Crollo ponte Gianni</title>
+				<description>
+					Il Ponte Gianni è crollato da un mese ormai. I cittadini ti chiedono di trovare il colpevole Come desideri procedere?
+				</description>
+				<choices>
+					<choice>
+						<title>Attui un procedimento volto a trovare i reali responsabili, anche se costoso</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="+5" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Fuori dal mio governo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="security" delta="-5" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>randomChemistryTrivia</name>
+				<title>Acido perclorico</title>
+				<description>
+					Qual'è di questi?
+						</description>
+				<choices>
+					<choice>
+						<title>HClO3</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>HClO4</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>HClO2</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>Riciclaggio</name>
+				<title>Riciclaggio</title>
+				<description>
+					Il Ministro dell'economia Fabrizio Briziti chiede di aiutarlo a riciclare del denaro proveniente dallo spaccio di droga. 
+					<br />
+					Come ti comporti?
+						</description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta, consapevole dell'incentivo al commercio di droga</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti la richiesta e denunci il Ministro</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>riforma</name>
+				<title>Riforma</title>
+				<description>
+					L'Europa ti chiede una serie di riforme sul piano economico
+								<br />
+					Come desideri procedere?
+								</description>
+				<choices>
+					<choice>
+						<title>Si è vero, sono necessarie, ma non tutti potrebbero comprenderne l'efficacia</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>No, non servono</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Basta, fuori dall'Europa</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="economy" delta="-15" />
+							<set who="levels" what="security" delta="-15" />
+							<set who="levels" what="health" delta="-10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>scandola</name>
+				<title>Scandalo di governo</title>
+				<description>
+					Il tuo ministro dell'interno, Giovanni Giorgio è sotto inchiesta per corruzione e abuso d'ufficio.                      
+					  <br />
+					Come desideri procedere?
+								</description>
+				<choices>
+					<choice>
+						<title>Rimane in ufficio finchè condannato</title>
+						<effects>
+							<goto scene="scandolaStay" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Fuori dal mio governo</title>
+						<effects>
+							<goto scene="scandolaGo" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>terremoto</name>
+				<title>Terremoto nelle SMarche</title>
+				<description>
+					Terremoto nelle SMarche              <br />
+					Come desideri procedere?
+								</description>
+				<choices>
+					<choice>
+						<title>Ti rechi personalmente sul luogo e prometti aiuto e sostegni</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Lo consideri uno spreco del tuo tempo e rimani in ufficio</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>vaccino1</name>
+				<title>Vaccino non testato</title>
+				<description>
+					Un Paese straniero ti propone di utilizzare su larga scala un vaccino non testato sulla tua popolazione. 
+					<br />
+					Come ti comporti?
+								</description>
+				<choices>
+					<choice>
+						<title>Ti dichiari favorevole</title>
+						<effects>
+							<goto scene="randVacc" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ti dichari sfavorevole</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="+10" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>vescovo</name>
+				<title>Vescovo di Napoly</title>
+				<description>
+					Il vescovo di Napoly è stato accusato di molestie sessuali da parte di un gruppo di giovani ragazzi. Egli ti chiede di insabbiare la questione            <br />
+					Come ti comporti?
+								</description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta e insabbi la questione</title>
+						<effects>
+							<goto scene="randVesc" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti la richiesta e lo denunci pubblicamente, pur sapendo lo scompiglio che ciò porterebbe</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="-5" />
+							<set who="levels" what="consensus" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
 		</questions>
 	</sections>
-	<viruses>
-		<virus>
-			<name>eys</name>
-			<title>eys-1</title>
-			<description>Descrizione</description>
-			<stats>
-				<transmissionSpeed>1</transmissionSpeed>
-				<lethality>1</lethality>
-				<hospitalizationRate>1</hospitalizationRate>
-			</stats>
-			<infoboxes>
-				<infobox>
-					<title>Infobox1</title>
-					<description>Testo</description>
-				</infobox>
-			</infoboxes>
-		</virus>
-	</viruses>
 	<parties>
 		<party>
 			<name>partito_giallo</name>
@@ -565,7 +1578,7 @@
 			<name>no_al_5g</name>
 			<title>No al 5G</title>
 			<secretary>Giovanna Vogheri</secretary>
-			<description>Un partito il cui interesse esclusivo è bandire il 5G, quale emissario di Satana,</description>
+			<description>Un partito il cui interesse esclusivo è bandire il 5G, quale emissario di Satana</description>
 			<motto>Uniti nella nostra APERTURA MENTALE</motto>
 		</party>
 		<party>
@@ -625,35 +1638,126 @@
 			<motto>BASTA POWERPOINT BASTAAAAAAAAAA: Usate Prezi por favor</motto>
 		</party>
 	</parties>
+	<viruses>
+		<virus>
+			<name>covvidi-21</name>
+			<title>COVIDDI-21</title>
+			<levels>
+				<Rt>1</Rt>
+				<lethality>2.5</lethality>
+			</levels>
+			<infoboxes>
+				<infobox>Gli scienziati dell'Academia di Salomone hanno scoperto un nuovo coronavirus. Esso è un virus ad RNA che si trasmette per via aerea ed è potenzialmente pandemico</infobox>
+				<infobox>I sintomi inziali sono solitamente tosse, febbre, mal di testa e vomito, ma le conseguenze possono essere ben più gravi.</infobox>
+				<infobox>L'Istituto Nazionale di Statistica ha calcolato che questo virus ha una letalità del 1% e un Rt di 2,5. Gli esperti ti chiedono di adottare misure di sicurezza per ridurne la diffusione</infobox>
+				<infobox>Secondo le ricerche condotte dall'Accademia di Salomone, questo virus è fuggito dal laboratorio di microbiologia "Matteo Koothrappali"</infobox>
+				<infobox>Grazie al lavoro del team di Roberto Marconi è stato scoperto il meccanismo di azione del virus, basato sulla proteina NIKE</infobox>
+				<infobox>Dopo un accurata indagine realizzata dall'Accademia di Salomone in collaborazione con i servizi segreti, si è scoperto che in realtà questo virus viene dagli armadilli</infobox>
+				<infobox>È stato scoperto un vaccino!</infobox>
+			</infoboxes>
+			<mutations>
+				<mutation>
+					<name>toriniese</name>
+					<title>Variante toriniese</title>
+					<description>Nella periferia di Torinia, abitata da molti no-mask, si è sviluppata una nuova variante del virus, ancora più contagiosa</description>
+					<levels>
+						<Rt>0.9</Rt>
+						<lethality>3.5</lethality>
+					</levels>
+				</mutation>
+				<mutation>
+					<name>turcomanna</name>
+					<title>Variante turcomanna</title>
+					<description>È stata scoperta una nuova variante del virus proveniente dalla fiera nazionale del cavallo turcomanno. È meno molto più mortale. Metti al riparo gli anziani e le categorie fragili!</description>
+					<levels>
+						<Rt>1,5</Rt>
+						<lethality>10</lethality>
+					</levels>
+				</mutation>
+				<mutation>
+					<name>pasquale</name>
+					<title>Variante pasquale</title>
+					<description>Durante le celebrazioni religiose pasquali si è diffusa una nuova variante. È molto più pericolosa delle altre e sarà difficile estirparla</description>
+					<levels>
+						<Rt>3</Rt>
+						<lethality>10</lethality>
+					</levels>
+				</mutation>
+				<mutation>
+					<name>falciforme</name>
+					<title>Variante falciforme</title>
+					<description>Questa variante si chiama così per la strana forma che assume la proteina NIKE modificata. Molto contagiosa ma con una mortalità molto più bassa.</description>
+					<levels>
+						<Rt>3,5</Rt>
+						<lethality>0,5</lethality>
+					</levels>
+				</mutation>
+				<mutation>
+					<name>vip</name>
+					<title>Variante vip</title>
+					<description>I locali mondani dell'isola della Gherba non hanno rispettato il tuo ultimo DPCM, per questo si è diffusa una nuova variante</description>
+					<levels>
+						<Rt>2</Rt>
+						<lethality>2,75</lethality>
+					</levels>
+				</mutation>
+			</mutations>
+		</virus>
+	</viruses>
 	<misc>
 		<welcomeMessage scrollDelay="400" duration="10" direction="up">
-		Testo di prova
+		Araldia, 2312
+		----Stampa associata----
+		Il nuovo presidente si insedia, il paese attende ansioso cambiamenti dal governo
 		</welcomeMessage>
 	</misc>
 </Araldia>
 `;
-var deadlyError=false;
-function chunkString(str, length) {
-  return str.match(new RegExp('.{1,' + length + '}', 'g'));
-}
-function brLine(lines){
-		lines=lines.trim().replace("\n");
-		var g=lines;
-		try{
-		lines= chunkString(lines,80).join("<br />");
+	var lastEff = [];
+	var deadlyError = false;
+	function chunkString(str, length) {
+		return str.match(new RegExp('.{1,' + length + '}', 'g'));
+	}
+	function brLine(lines) {
+		return "<p class=\"wbr\">" + lines + "</p>";
+	}
+	// allow for nested structured data through "|" operator
+	function rdRead(who, how) {
+		var v = gameVars[randomInteger(0, Object.keys(gameVars).length - 1)];
+
+	}
+
+	function recurseset(who, what, delta = null, to = null) {
+		var evalSensitive = "";
+	}
+	function selBuilder(dName, arrselector) {
+		var begin = dName, list = arrselector.split("|");
+		for (var i = 0; i < list.length; i++) {
+			if (list[i] == "rand") begin += "[randomInteger(0," + begin + ".length)]";
+			else if (!isNaN(parseInt(list[i]))) begin += "[" + list[i] + "]";
+			else begin += "[\"" + list[i] + "\"]";
 		}
-		catch(e){
-			lines=g;
+		return begin;
+	}
+
+	function recurseget(who, what) {
+		//deprecated
+		var ac = what.split("|")
+		if (gameVars[who] == undefined) gameVars[who] = {};
+		var cVal = gameVars[who][what[0]];
+		for (var i = 1; i < ac.length; i++) {
+			if (parseInt(ac[i])) cVal = cVal[parseInt(ac[i])];
+			else if (ac[i] == "rand") cVal = cVal[randomInteger(0, cVal.length)];
+			else cVal = cVal[ac[i]];
+			if (cVal === undefined) cVal = {};
 		}
-		return lines;
-}
+		if (cVal === undefined) return null;
+		return cVal;
+	}
 	function gvRead(who, what) {
-		try {
-			return gameVars[who][what];
-		}
-		catch (e) {
-			return false;
-		}
+		if (gameVars[who] == undefined) return 0;
+		if (gameVars[who][what]  == undefined) return 0;
+		return gameVars[who][what] ;
 	}
 	function randomInteger(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -671,19 +1775,21 @@ function brLine(lines){
 		else {
 			gameVars[who][what] = to;
 		}
-		if(who=="levels"){
-			if(parseInt(gvRead(who,what))>100){
+		if (who == "levels") {
+			if (parseInt(gvRead(who, what)) > 100) {
 				gameVars[who][what] = 100;
 			}
-			else if(parseInt(gvRead(who,what))<0){
-				gameVars[who][what] = 100;
+			else if (parseInt(gvRead(who, what)) < 0) {
+				gameVars[who][what] = 0;
+				gameOver();
 			}
+			if (who == "levels") updateLevelGraphically(what, gameVars[who][what])
 		}
-		else if(who=="virus" && what=="letality" || what=="hospitalizationRate" || what=="transmissionSpeed"){
-			if(parseInt(gvRead(who,what))>100){
+		else if (who == "virus" && what == "letality" || what == "hospitalizationRate" || what == "transmissionSpeed") {
+			if (parseInt(gvRead(who, what)) > 100) {
 				gameVars[who][what] = 100;
 			}
-			else if(parseInt(gvRead(who,what))<0){
+			else if (parseInt(gvRead(who, what)) < 0) {
 				gameVars[who][what] = 100;
 			}
 		}
@@ -714,6 +1820,18 @@ function brLine(lines){
 		};
 		return segs.length ? '/' + segs.join('/') : null;
 	};
+	var lIImplCache = 0, partyIndex = 0;
+	function implicitVreplace(text) {
+		if (gameVars.player.actionN != lIImplCache) {
+			lIImplCache=gameVars.player.actionN;
+			partyIndex=randomInteger(0,gameVars.parties.length-1);
+		}
+
+			text = "<a class=\"partyH\" data-party-index=\""+partyIndex+"\">"+text.replace("%randPartyName%", gameVars.parties[partyIndex].name)+"</a>";
+			text =  "<a class=\"partyH\" data-party-index=\""+partyIndex+"\">"+text.replace("%randPartySecretary%", gameVars.parties[partyIndex].secretary)+"</a>";
+			text = text.replace("%playerName%",gameVars.player.name );
+			return text;
+	}
 
 	function cTagRecursive(tag, iteration = (-1)) {
 		iteration++;
@@ -721,7 +1839,7 @@ function brLine(lines){
 			/*cleanup*/
 			var l = tag.getElementsByTagName("sectionGroup");
 			for (var it = 0; it < l.length; it++) {
-				l[it].made=false;
+				l[it].made = false;
 			}
 		}
 		html = "";
@@ -738,20 +1856,20 @@ function brLine(lines){
 				if (p == null) continue;
 				switch (p.nodeName) {
 					case "description":
-						html += brLine(currentTag.textContent)+"<br />";
+						html += brLine(implicitVreplace(currentTag.textContent)) + "<br />";
 						break;
 					case "title":
-						if (p.parentNode.nodeName=="choice") continue;
-						html += "<h3>" + currentTag.textContent + "</h3><br />";
+						if (p.parentNode.nodeName == "choice") continue;
+						html += "<h3>" + implicitVreplace(currentTag.textContent) + "</h3><br />";
 						break;
 					case "section":
-						html += currentTag.textContent+"<br />";
+						html += brLine(implicitVreplace(currentTag.textContent)) + "<br />";
 						break;
 				}
 
 			}
 			else if (currentTag.nodeName == "if" || currentTag.nodeName == "elseif") {
-				if (currentTag.parentNode.nodeName == "event" || currentTag.parentNode.nodeName == "question" || currentTag.parentNode.nodeName == "scene"&& currentTag.childNodes.length == 0) {
+				if (currentTag.parentNode.nodeName == "event" || currentTag.parentNode.nodeName == "question" || currentTag.parentNode.nodeName == "scene" && currentTag.childNodes.length == 0) {
 					quitDo = true;
 				}
 				else if (currentTag.parentNode.nodeName == "triggers") {
@@ -812,7 +1930,7 @@ function brLine(lines){
 			else if (currentTag.nodeName == "section") {
 				if (currentTag.parentNode.made) continue;
 				var doForce = false;
-				if (currentTag.parentNode.nodeName == "sectionGroup" && currentTag.parentNode.attributes["atLeastOne"].value == "true") {
+				if (currentTag.parentNode.nodeName == "sectionGroup" && /* deprecated currentTag.parentNode.attributes["atLeastOne"].value == "true"*/ true) {
 					var c = currentTag.nextSibling;
 					while (c != null && c.nodeName != "section") {
 						c = c.nextSibling;
@@ -831,7 +1949,7 @@ function brLine(lines){
 					html += cTagRecursive(currentTag, iteration);
 				}
 			}
-			else if (currentTag.nodeName == "set") {
+			else if (currentTag.nodeName == "set" && currentTag.parentNode.nodeName != "effects") {
 				if (currentTag.hasAttribute("delta")) set(currentTag.attributes["who"].value, currentTag.attributes["what"].value, currentTag.attributes["delta"].value, null);
 				else set(currentTag.attributes["who"].value, currentTag.attributes["what"].value, null, currentTag.attributes["to"].value);
 			}
@@ -840,23 +1958,29 @@ function brLine(lines){
 			}
 			else if (currentTag.nodeName == "goto") {
 				if (currentTag.hasAttribute("scene")) {
+
 					if (currentTag.parentNode.nodeName == "effects") {
-						var v= "&arr;";
-						
-						try{
-							var t=currentTag.parentNode.parentNode.getElementsByTagName("title")[0];
-							v=t.textContent;
+						var v = "&arr;";
+						var c = currentTag.parentNode.parentNode, ic = 0;
+						while (c != null) {
+							c = c.previousElementSibling;
+							if (c != null && c.nodeName == "choice") ic++;
 						}
-						catch(e){
+						effCompare(currentTag.parentNode, ic);
+						try {
+							var t = currentTag.parentNode.parentNode.getElementsByTagName("title")[0];
+								v = implicitVreplace(t.textContent);
+						}
+						catch (e) {
 
 						}
-						html += "&nbsp;&nbsp;&nbsp;<button  type=\"button\" class=\"nes-btn is-primary\"  onclick=\"goto('scene','" + currentTag.attributes["scene"].value + "');\">"+v+"</button>";
+						html += "&nbsp;&nbsp;&nbsp;<button  type=\"button\" class=\"nes-btn is-primary\"  onclick=\"goto('scene','" + currentTag.attributes["scene"].value + "'," + ic + ");\">" + v + "</button>";
 						continue;
 					}
 					var child = window.cats.getElementsByTagName("scenes")[0].children;
 					for (var i = 0; i < child.length; i++) {
 						if (child[i].getElementsByTagName("name")[0].textContent == currentTag.attributes["scene"].value) {
-							console.log(child[i]);
+							//console.log(child[i]);
 							html += cTagRecursive(child[i], iteration);
 							break;
 						}
@@ -864,21 +1988,32 @@ function brLine(lines){
 				}
 				else if (currentTag.hasAttribute("question")) {
 					if (currentTag.parentNode.nodeName == "effects") {
-						var v= "&arr;";
-						
-						try{
-							var t=currentTag.parentNode.parentNode.getElementsByTagName("title")[0];
-							v=t.textContent;
+						var v = "&arr;";
+						var c = currentTag.parentNode.parentNode, ic = 0;
+						while (c != null) {
+							//console.log(c);
+							c = c.previousElementSibling;
+							if (c != null && c.nodeName == "choice") ic++;
 						}
-						catch(e){
+						effCompare(currentTag.parentNode, ic);
+						try {
+							var t = currentTag.parentNode.parentNode.getElementsByTagName("title")[0];
+								v = implicitVreplace(t.textContent);
+						}
+						catch (e) {
 
 						}
-						html += "&nbsp;&nbsp;&nbsp;<button  type=\"button\" class=\"nes-btn is-primary\"  onclick=\"goto('question','" + currentTag.attributes["question"].value + "');\">"+v+"</button>";
+						html += "&nbsp;&nbsp;&nbsp;<button  type=\"button\" class=\"nes-btn is-primary\"  onclick=\"goto('question','" + currentTag.attributes["question"].value + "'," + ic + ");\">" + v + "</button>";
+						continue;
+					}
+					if (currentTag.attributes["question"].value == "next") {
+						Q();
 						continue;
 					}
 					var child = window.cats.getElementsByTagName("questions")[0].childNodes;
 					for (var i = 0; i < child.length; i++) {
-						if (child[i].getElementsByTagName("name") == currentTag.attributes["question"].value) {
+						if (child[i].nodeName == "question") continue;
+						if (child[i].getElementsByTagName("name")[0].textContent == currentTag.attributes["question"].value) {
 							html = "";
 							html += cTagRecursive(child[i], iteration);
 							break;
@@ -889,17 +2024,22 @@ function brLine(lines){
 				else if (currentTag.hasAttribute("event")) {
 					if (currentTag.hasAttribute("scene")) {
 						if (currentTag.parentNode.nodeName == "effects") {
-							var v= "&arr;";
-						
-						try{
-							var t=currentTag.parentNode.parentNode.getElementsByTagName("title")[0];
-							v=t.textContent;
-						}
-						catch(e){
+							var v = "&arr;";
+							var c = currentTag.parentNode.parentNode, ic = 0;
+							while (c != null) {
+								c = c.previousElementSibling;
+								if (c != null && c.nodeName == "choice") ic++;
+							}
+							effCompare(currentTag.parentNode, ic);
+							try {
+								var t = currentTag.parentNode.parentNode.getElementsByTagName("title")[0];
+								v = implicitVreplace(t.textContent);
+							}
+							catch (e) {
 
-						}
-						html += "&nbsp;&nbsp;&nbsp;<button  type=\"button\" class=\"nes-btn is-primary\"  onclick=\"goto('event','" + currentTag.attributes["event"].value + "');\">"+v+"</button>";
-						continue;
+							}
+							html += "&nbsp;&nbsp;&nbsp;<button  type=\"button\" class=\"nes-btn is-primary\"  onclick=\"goto('event','" + currentTag.attributes["event"].value + "'," + ic + ");\">" + v + "</button>";
+							continue;
 						}
 						var child = window.cats.getElementsByTagName("events")[0].childNodes;
 						for (var i = 0; i < child.length; i++) {
@@ -922,95 +2062,196 @@ function brLine(lines){
 	}
 
 
+function upGrData(){
+	virus=gameVars["virus"];
+	$("#vName").html(virus["title"]);
+	//$("#vDesc").html(virus["description"]);
+	var data = google.visualization.arrayToDataTable([
+          ['Categoria', 'Persone'],
+          ['Sani',     virus["people"]["healthy"]],
+          ['Infetti',      virus["people"]["infected"]],
+          ['Immuni',  virus["people"]["immune"]],
+          ['Morti', virus["people"]["dead"]]
+        ]);
 
-	var i = 0, childrenEl = null, tHtml = "";
+        var options = {
+          title: 'CTS',
+		  backgroundColor: { fill:'transparent' },
+		  color: "white"
+        };
+		chart.draw(data, options);
+
+}
+function gameOver(){
+	audio.src="music/end.mp3";
+	audio.play();
+	
+		$("#beginSect2").fadeIn();
+		$("#mq2").html(`
+		<pre>
+			
+		Game Over
+			
+			
+			
+			
+		Araldia
+		
+		&copy; 2021
+		Mattia Mascarello
+		Diego Scanavino
+		Giacomo Roggero
+		
+		Musica: RoleMusic
+		</pre>
+		<a href="javascript:location.reload();">Riavvia</a>
+		`);
+	
+}
+	var i = 0, childrenEl = null, tHtml = "",chart=null,tick=0,chart=null;
 	parser = new DOMParser();
 	xmlDoc = parser.parseFromString(text, "text/xml");
 	var cats = xmlDoc.children[0];
+	initParties();
 	var values = cats.getElementsByTagName("values")[0];
 	tHtml = `
 <table>
 `;
 	for (i = 0; i < values.childElementCount; i++) {
 		childrenEl = values.children[i];
-		console.log(childrenEl);
+		//console.log(childrenEl);
 		tHtml += `<tr id="` + childrenEl.getElementsByTagName("name")[0].textContent + `" onmouseover="ttvy(this)" onmouseout="ttvn(this)" data-desc="` + childrenEl.getElementsByTagName("description")[0].textContent + `"><td>` + childrenEl.getElementsByTagName("title")[0].textContent + `</td><td class="mtW">&nbsp;&nbsp;&nbsp;<progress  class="nes-progress is-success"  style=" width:400px;" min="` + childrenEl.getElementsByTagName("min")[0].textContent + `" max="` + childrenEl.getElementsByTagName("max")[0].textContent + `" value="` + childrenEl.getElementsByTagName("default")[0].textContent + `"  ></progress></td><td>` + childrenEl.getElementsByTagName("default")[0].textContent + `/` + childrenEl.getElementsByTagName("max")[0].textContent + `</td></tr>`;
 	}
-	console.log(tHtml);
+	//console.log(tHtml);
 	tHtml += "</table>";
 	$("#levels").hide();
 	document.getElementById("levels").innerHTML = tHtml;
-
 	$("#begin").click(function () {
+		set("levels", "health", null, 50);
+		set("levels", "economy", null, 50);
+		set("levels", "consensus", null, 50);
+		set("levels", "security", null, 50);
+		set("difficulty", $("#dfficultySelect").val());
 		if ($("#username").val().length == 0) return false;
 		setTimeout(function () { deAudio(6); }, 100);
 		$("#mainMenu").fadeOut();
 		$("#beginSect").fadeIn();
-		$("#mq").attr("scrolldelay",cats.getElementsByTagName("misc")[0].getElementsByTagName("welcomeMessage")[0].attributes["scrollDelay"].value);
-		$("#mq").attr("direction",cats.getElementsByTagName("misc")[0].getElementsByTagName("welcomeMessage")[0].attributes["direction"].value);
+		$("#mq").attr("scrolldelay", cats.getElementsByTagName("misc")[0].getElementsByTagName("welcomeMessage")[0].attributes["scrollDelay"].value);
+		$("#mq").attr("direction", cats.getElementsByTagName("misc")[0].getElementsByTagName("welcomeMessage")[0].attributes["direction"].value);
 		$("#mq").html(cats.getElementsByTagName("misc")[0].getElementsByTagName("welcomeMessage")[0].textContent);
-		setTimeout(function(){
-		$("#beginSect").fadeOut();
+		setTimeout(function () {
 			$("#levels").fadeIn();
-			Q();
-			audio.src="music/Rolemusic - The White Frame.mp3";
-			setTimeout(function(){
+			$("#beginSect").fadeOut();
 
-				for(var i=0;i<1;i+=0.001){
-			audio.volume=i;
-			}
-			audio.volume=1;
-			audio.play();
-			},6000)
-		},cats.getElementsByTagName("misc")[0].getElementsByTagName("welcomeMessage")[0].attributes["duration"].value*1000);
+			var data = google.visualization.arrayToDataTable([
+          ['Categoria', 'Persone'],
+          ['Sani',     60000000],
+          ['Infetti',      0],
+          ['Immuni',  0],
+          ['Morti', 0]
+        ]);
+
+        var options = {
+			backgroundColor: { fill:'transparent' },
+			color:"white",
+          title: 'CTS'
+        };
+
+        chart= new google.visualization.PieChart(document.getElementById('cts'));
+
+        chart.draw(data, options);
+			initRandVirus(function(){
+			$("#countV").fadeIn();
+			audio.src = "music/Rolemusic - The White Frame.mp3";
+			audio.volume=0;
+			Q();
+			setTimeout(function(){
+				audio.volume=1
+				audio.play()
+			},3000);
+			});
+		}, cats.getElementsByTagName("misc")[0].getElementsByTagName("welcomeMessage")[0].attributes["duration"].value * 1000);
 	})
 
-function randEl(category){
-	return cats.getElementsByTagName(category)[0].children[randomInteger(0,cats.getElementsByTagName(category)[0].childElementCount-1)];
-}
-function getEl(category,name){
-	if(category=="questions" && name=="next") return Q();
-	var ets= cats.getElementsByTagName(category)[0].getElementsByTagName("name");
-	for(var i=0;i<ets.length;i++){
-			 if(ets[i].textContent==name){
-				return setField(ets[i].parentNode);
-			 }
+	var randMap={};
+		function randEl(category) {
+		if(!randMap[category]) randMap[category]=[0];	
+		if(randMap[category].length==cats.getElementsByTagName(category)[0].childElementCount) randMap[category]=[0];
+		if(tick%5==0) return cats.getElementsByTagName(category)[0].children[0];
+		var imx=imx=randomInteger(0, cats.getElementsByTagName(category)[0].childElementCount - 1);
+		while(randMap[category].indexOf(imx)>-1){
+			imx=randomInteger(0, cats.getElementsByTagName(category)[0].childElementCount - 1);
+		}
+		randMap[category].push(imx);
+		return cats.getElementsByTagName(category)[0].children[imx];
 	}
-}
-function setField(h){
-		var res=cTagRecursive(h);
-		deadlyError=true;
-		if(res===false) throw "No available resources";
-		var tml="<br /><br /><br /><br />"+res;
+	function getEl(category, name) {
+		if (category == "questions" && name == "next") return Q();
+		var ets = cats.getElementsByTagName(category)[0].getElementsByTagName("name");
+		for (var i = 0; i < ets.length; i++) {
+			if (ets[i].textContent == name) {
+				return setField(ets[i].parentNode);
+			}
+		}
+	}
+	function setField(h, i = 0) {
+		var res = cTagRecursive(h);
+		deadlyError = true;
+		if (res === false) return Q();
+		var tml = "<br /><br /><br /><br /><br /><br /><br />" + res;
 		$("#gameField").hide();
 		$("#gameField").html(tml);
 		$("#gameField").show();
-}
-	function Q(){
-		var h=randEl("questions");
-		setField(h);
+		gameVars.player.actionN++;
 	}
-	window.onerror = function(message, source, lineno, colno, error) {
+	function Q() {
+		lastVircb=null;
+		var h = randEl("questions");
+		if(tick%5==0 && tick!=0){
+			$("#gameField").hide();
+		gameVars["virus"]["infoboxLastI"] ++;
+			$("#virusBeginOhNo").show();
+			var infoId=gameVars["virus"]["infoboxLastI"] ;
+			var el=cats.getElementsByTagName("viruses")[virusIndex];
+			try{
+		  	var text = el.getElementsByTagName("infoboxes")[0].children[infoId].textContent;
+		  	if(tet==undefined) throw "un";
+		  	}
+		  	catch(e){
+		  		$("gameField").show();
+		  		$("virusBeginOhNo").hide();
+		  	}
+		$("#virusBeginOhNo").html("<br/><br/><br/><br/><br/><br/><br/><h1>Bollettino</h1><br /><p class=\"wbb\">" + text + "</p><button type=\"button\" class=\"okVir nes-btn is-primary\">OK</button>");
+		}
+		
+		setField(h);
+			if(tick%5==0 && tick!=0){
+			$("#gameField").hide();
+			}
+		/*if(tick%5==0 && tick!=0) */ calcvir();
+		tick++;
+	}
+	window.onerror = function (message, source, lineno, colno, error) {
 		$("#errorData").html(`
 		<div class="nes-table-responsive">
   <table class="nes-table is-bordered is-centered" style="height:300px;width:700px;">
 			<tr>
 				<td>Message</td>
-				<td>`+message+`</td>
+				<td>`+ message + `</td>
 				</tr>
 			<tr>
 				<td>Source</td>
-				<td>`+source+`</td>
+				<td>`+ source + `</td>
 				</tr>
 			<tr>
 				<td>Line and column</td>
-				<td>`+lineno+`:`+colno+`</td>
+				<td>`+ lineno + `:` + colno + `</td>
 				</tr>
 				
 
 			<tr>
 				<td>Error</td>
-				<td>`+error+`</td>
+				<td>`+ error + `</td>
 				</tr>
 
 			</table>
@@ -1020,93 +2261,213 @@ function setField(h){
 	}
 
 	function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }
+		var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+		if (document.getElementById(elmnt.id + "header")) {
+			// if present, the header is where you move the DIV from:
+			document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+		} else {
+			// otherwise, move the DIV from anywhere inside the DIV:
+			elmnt.onmousedown = dragMouseDown;
+		}
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+		function dragMouseDown(e) {
+			e = e || window.event;
+			e.preventDefault();
+			// get the mouse cursor position at startup:
+			pos3 = e.clientX;
+			pos4 = e.clientY;
+			document.onmouseup = closeDragElement;
+			// call a function whenever the cursor moves:
+			document.onmousemove = elementDrag;
+		}
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
+		function elementDrag(e) {
+			e = e || window.event;
+			e.preventDefault();
+			// calculate the new cursor position:
+			pos1 = pos3 - e.clientX;
+			pos2 = pos4 - e.clientY;
+			pos3 = e.clientX;
+			pos4 = e.clientY;
+			// set the element's new position:
+			elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+			elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+		}
 
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-dragElement(document.getElementById("error"));
-function goto(cat,name){
-	getEl(cat+"s",name);
-}
+		function closeDragElement() {
+			// stop moving when mouse button is released:
+			document.onmouseup = null;
+			document.onmousemove = null;
+		}
+	}
+	dragElement(document.getElementById("error"));
+	function goto(cat, name, ic = 0) {
+		try {
+			lastEff.forEach(function (a) {
+				//([a,ic]);
+				if (a["iC"] != ic) return false;
+				set(a["who"], a["what"], a["delta"], a["to"]);
+			});
+		}
+		catch (e) {
+			//console.log(e);
+		}
+		lastEff=[];
+		if (cat == "question" && name == "next") {
+			Q();
+		}
+		else {
+			getEl(cat + "s", name);
+		}
+	}
 
 
 
 
-var tooltipvisible=false,text="Mayor Tom, There is something wrong!";
-function ttvy(a){
-	tooltipvisible=true;
-    text=a.attributes["data-desc"].value;
-}
-function ttvn(a){
-	tooltipvisible=false;
-}
-//Make the DIV element draggagle:
-tooltipel(document.getElementById("tooTpk"));
+	var tooltipvisible = false, text = "Mayor Tom, There is something wrong!";
+	function ttvy(a) {
+		tooltipvisible = true;
+		text = a.attributes["data-desc"].value;
+	}
+	function ttvn(a) {
+		tooltipvisible = false;
+	}
+	//Make the DIV element draggagle:
+	tooltipel(document.getElementById("tooTpk"));
 
-function tooltipel(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	function tooltipel(elmnt) {
+		var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
-    document.onmousemove = elementDrag;
- 
+		document.onmousemove = elementDrag;
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    elmnt.style.display=tooltipvisible?"block":"none";
-    document.getElementById("tooltT").innerHTML=text;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (pos4) + "px";
-    elmnt.style.left = (pos3) + "px";
-  }
 
- 
-}
-function initSplash(i=0,callback){
-	if(i<80){
+		function elementDrag(e) {
+			e = e || window.event;
+			e.preventDefault();
+			elmnt.style.display = tooltipvisible ? "block" : "none";
+			document.getElementById("tooltT").innerHTML = text;
+			pos3 = e.clientX;
+			pos4 = e.clientY;
+			// set the element's new position:
+			elmnt.style.top = (pos4) + "px";
+			elmnt.style.left = (pos3) + "px";
+		}
+
+
+	}
+	function initSplash(i = 0, callback) {
+		if (i < 80) {
+			setTimeout(function () {
+				$("#splashImg").css("width", i + "%");
+				initSplash(i + 1, callback);
+			}, 100);
+		}
+		else {
+			callback();
+		}
+	}
+
+	function updateLevelGraphically(id, val) {
+		var prog = $("#" + id).children(".mtW").children("progress");
+		prog.attr("value", val);
+		$("#" + id).children("td").last().html(val + "/" + 100);
+		prog.removeClass("is-success");
+		prog.removeClass("is-warning");
+		prog.removeClass("is-error");
+		if (val > 50) {
+			prog.addClass("is-success");
+		}
+		else if (val > 25) {
+			prog.addClass("is-warning");
+		}
+		else {
+			prog.addClass("is-error");
+		}
+	}
+	function initParties(){
+		gameVars["parties"]=[];
+		var pts=xmlDoc.getElementsByTagName("parties")[0].children;
+		for(var i=0;i<pts.length;i++){
+			gameVars["parties"].push({
+					"name":pts[i].getElementsByTagName("title")[0].textContent,
+					"secretary":pts[i].getElementsByTagName("secretary")[0].textContent,
+					"description":pts[i].getElementsByTagName("description")[0].textContent,
+					"motto":pts[i].getElementsByTagName("motto")[0].textContent
+			});
+		}
+	}
+
+	function effCompare(effectsTag, iC) {
+		console.log({"Tag":effectsTag,"iC":iC});
+		var elL = effectsTag.getElementsByTagName("set");
+		for (var i = 0; i < elL.length; i++) {
+			var delta = null, to = null;
+			if (elL[i].hasAttribute("delta")) delta = elL[i].attributes["delta"].value;
+			if (elL[i].hasAttribute("to")) delta = elL[i].attributes["to"].value;
+			lastEff.push({ "iC": iC, "who": elL[i].attributes["who"].value, "what": elL[i].attributes["what"].value, "delta": delta, "to": to });
+		}
+
+	}
+	function calcvir(){
+		/*
+		Algoritmo
+		
+
+		*/
+		var peopleTot=60000000,dd=0,inffactor=(0.20+0.01*randomInteger(0,10));
+		var inf= gameVars["virus"]["people"]["infected"];
+		gameVars["virus"]["people"]["infected"]=inf*(gameVars["virus"]["Rt"]+1);
+		gameVars["virus"]["people"]["infected"]-=inf;
+		gameVars["virus"]["people"]["immune"]+=inf;
+		dd=Math.floor(inf*gameVars["virus"]["lethality"]/100);
+		gameVars["virus"]["people"]["dead"]+=dd;
+		gameVars["virus"]["people"]["immune"]-=dd;
+		// simulate time to healing, infection by immunes
+		gameVars["virus"]["people"]["infected"]+=gameVars["virus"]["people"]["immune"]*inffactor;
+		gameVars["virus"]["people"]["healthy"]=peopleTot-(gameVars["virus"]["people"]["infected"]+gameVars["virus"]["people"]["dead"]+gameVars["virus"]["people"]["immune"]);
+		if (gameVars["virus"]["people"]["healthy"] < 0) gameVars["virus"]["people"]["healthy"]=0;
+		if (gameVars["virus"]["people"]["infected"] < 0) gameVars["virus"]["people"]["infected"]=0;
+		if (gameVars["virus"]["people"]["dead"] < 0) gameVars["virus"]["people"]["dead"]=0;
+		if (gameVars["virus"]["people"]["immune"] < 0) gameVars["virus"]["people"]["immune"]=0;
+
+
+		upGrData();
+	}
+	var lastVircb=null,virusIndex=0;
+	function initRandVirus(cb) {
+		lastVircb=cb;
 		setTimeout(function(){
-		$("#splashImg").css("width",i+"%");
-			initSplash(i+1,callback);
-		},100);
+		audio.src="music/improvisation.mp3";
+		audio.volume=1;
+		audio.play()
+		},5000);
+		var li = window.cats.getElementsByTagName("viruses")[0].children;
+		var Iindex = randomInteger(0, li.length - 1);
+		virusIndex=Iindex;
+		var el = li[Iindex];
+		var title = el.getElementsByTagName("title")[0].textContent;
+		var text = el.getElementsByTagName("infoboxes")[0].children[0].textContent;
+		var nT = randomInteger(100, 500);
+		gameVars["virus"] = {};
+		gameVars["virus"]["people"]={};
+		gameVars["virus"]["people"]["dead"]=0;
+		gameVars["virus"]["people"]["immune"]=0;
+		gameVars["virus"]["people"]["infected"]=randomInteger(30,200);
+		gameVars["virus"]["people"]["healthy"]=60000000;
+
+		gameVars["virus"]["title"] = title;
+		gameVars["virus"]["infoboxLastI"] = 0;
+	// deprecated	gameVars["virus"]["stepsBeforeShowDashboard"] = randomInteger(3, 10);
+		gameVars["virus"]["dashboardShown"] = false;
+		gameVars["virus"]["Iindex"] = Iindex;
+		gameVars["virus"]["lethality"] = parseFloat(el.getElementsByTagName("levels")[0].getElementsByTagName("lethality")[0].textContent);
+		gameVars["virus"]["Rt"] = parseFloat(el.getElementsByTagName("levels")[0].getElementsByTagName("Rt")[0].textContent)
+		$("#gameField").hide();
+		$("#virusBeginOhNo").html("<br/><br/><br/><br/><br/><br/><br/><h1>" + title + "</h1><br /><p class=\"wbb\">" + text + "</p><button type=\"button\" class=\"okVir nes-btn is-primary\">OK</button>");
 	}
-	else{
-		callback();
-	}
-}
+	$(document).delegate(".okVir","click",function(){
+		$(this).closest(".closableVir").fadeOut();
+		if(lastVircb) lastVircb();
+	});
+	
 </script>

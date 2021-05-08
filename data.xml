@@ -4,222 +4,58 @@
 		<value>
 			<name>health</name>
 			<title>Salute</title>
-			<description>Il livello di salute della popolazione. Un indicatore importante</description>
+			<description>Coff.. coff.. Una poplazione in salute potrebbe essere utile</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
-			<colorZones>
-				<colorZone>
-					<min>0</min>
-					<max>30</max>
-					<color>red</color>
-					<description>Beh, che dire...</description>
-				</colorZone>
-				<colorZone>
-					<min>31</min>
-					<max>50</max>
-					<color>orange</color>
-					<description>Dai...</description>
-				</colorZone>
-				<colorZone>
-					<min>51</min>
-					<max>60</max>
-					<color>yellow</color>
-					<description>Non male</description>
-				</colorZone>
-				<colorZone>
-					<min>61</min>
-					<max>100</max>
-					<color>green</color>
-					<description>Ok</description>
-				</colorZone>
-			</colorZones>
-			<triggers>
-				<if is="0">
-					<goto scene="healthGameOver" />
-				</if>
-			</triggers>
 		</value>
 		<value>
-			<name>school</name>
-			<title>Scuola</title>
-			<description>Il tuo consenso da parte della popolazione. Un indicatore importante</description>
+			<name>economy</name>
+			<title>Economia</title>
+			<description>Potresti voler guardare questo indicatore ogni tanto</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
-			<colorZones>
-				<colorZone>
-					<min>0</min>
-					<max>30</max>
-					<color>red</color>
-					<description>Beh, che dire...</description>
-				</colorZone>
-				<colorZone>
-					<min>31</min>
-					<max>50</max>
-					<color>orange</color>
-					<description>Dai...</description>
-				</colorZone>
-				<colorZone>
-					<min>51</min>
-					<max>60</max>
-					<color>yellow</color>
-					<description>Non male</description>
-				</colorZone>
-				<colorZone>
-					<min>61</min>
-					<max>100</max>
-					<color>green</color>
-					<description>Ok</description>
-				</colorZone>
-			</colorZones>
-			<triggers>
-				<if is="0">
-					<goto scene="consensusGameOver" />
-				</if>
-			</triggers>
 		</value>
 		<value>
 			<name>consensus</name>
 			<title>Consenso</title>
-			<description>Il tuo consenso da parte della popolazione. Un indicatore importante</description>
+			<description>Il tuo consenso da parte della popolazione. Se vuoi fare qualcosa davvero ti può essere d'aiuto</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
-			<colorZones>
-				<colorZone>
-					<min>0</min>
-					<max>30</max>
-					<color>red</color>
-					<description>Beh, che dire...</description>
-				</colorZone>
-				<colorZone>
-					<min>31</min>
-					<max>50</max>
-					<color>orange</color>
-					<description>Dai...</description>
-				</colorZone>
-				<colorZone>
-					<min>51</min>
-					<max>60</max>
-					<color>yellow</color>
-					<description>Non male</description>
-				</colorZone>
-				<colorZone>
-					<min>61</min>
-					<max>100</max>
-					<color>green</color>
-					<description>Ok</description>
-				</colorZone>
-			</colorZones>
-			<triggers>
-				<if is="0">
-					<goto scene="consensusGameOver" />
-				</if>
-				<if lessThan="50">
-					<goto scene="consensusWarn" />
-				</if>
-			</triggers>
+		</value>
+		<value>
+			<name>security</name>
+			<title>Sicurezza</title>
+			<description>Sono al sicuro in parlamento. Vero?</description>
+			<min>0</min>
+			<max>100</max>
+			<default>100</default>
 		</value>
 	</values>
 	<sections>
 		<events>
-			<event frames="3" chance="10">
-				<!--
-				Ogni 3 schermate sorteggia, chance è la percentuale di probabilità che questo evento accada
-				-->
-				<if who="checkpoints" what="virusDeveloped" is="true" />
-				<name>new_variant</name>
-				<title>Nuova variante</title>
-				<description>
-					Il corriere della Pera annuncia l'arrivo di una nuova variante di
-					<print who="virus" what="name" />
-					. La nuova variante è
-					<sectionGroup atLeastOne="true" chance="100">
-						<!--
-						uno e uno soltanto di questi eventi avverrà sicuramente
-						-->
-						<section chance="10">
-							più letale del 10%
-							<set who="virus" what="lethal" delta="+10" />
-						</section>
-						<section chance="10">
-							meno letale del 10%
-							<set who="virus" what="lethal" delta="-10" />
-						</section>
-					</sectionGroup>
-				</description>
-				<set who="checkpoints" what="virusMutated" to="true" />
-				<choices>
-					<choice>
-						<title>Ho capito</title>
-						<effects>
-							<goto question="next" />
-						</effects>
-					</choice>
-				</choices>
-			</event>
-			<event frames="20" chance="45">
-				<if who="levels" what="consensus" lessThan="25" />
-				<name>crisi_di_governo</name>
-				<title>Crisi di governo</title>
-				<description>
-
-					<sectionGroup atLeastOne="true" chance="100">
-						<section chance="40">
-							A causa del
-							<print what="virusName" />
-							, il partito
-							<print who="parties" what="rand" />
-							ha deciso di innescare una crisi di governo.
-							Per fortuna i tuoi alleati ti sostengono e ne esci quasi illeso.
-							<set who="levels" what="consensus" delta="-5" />
-						</section>
-						<section chance="50">
-							A causa del
-							<print what="virusName" />
-							, il partito
-							<print who="parties" what="rand" />
-							ha deciso di innescare una crisi di governo.
-							Il tuo governo subisce un reimpasto.
-							<set who="levels" what="consensus" delta="-10" />
-						</section>
-						<section chance="10">
-							A causa della tua gestione del
-							<print what="virusName" />
-							, l'esercito tenta un colpo di stato.
-							<goto scene="coup" />
-						</section>
-					</sectionGroup>
-				</description>
-				<choices>
-					<choice>
-						<title>Ok</title>
-						<effects>
-							<goto question="next" />
-						</effects>
-					</choice>
-				</choices>
-			</event>
 		</events>
 		<scenes>
 			<scene>
-				<name>fondi_europei_scuola_yesno</name>
-				<title>Detto fatto</title>
+				<name>drogaStay</name>
+				<title>Scandalo di Governo</title>
 				<description>
-					<if who="checkpoints" what="consensus" lessThan="50">
-						I tuoi alleati di governo ti guardano con disappunto.
-						<set who="levels" what="school" delta="+5" />
-						<set who="levels" what="consensus" delta="-5" />
-					</if>
-					<else>
-						I docenti di tutte le scuole ti sorridono.
-						<set who="levels" what="school" delta="+10" />
-						<set who="levels" what="consensus" delta="+10" />
-					</else>
-				</description>
-				<set who="checkpoints" what="virusMutated" to="true" />
-				<choices>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-15" />
+											Viene condannato in primo grado
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+10" />
+											<set who="levels" what="security" delta="+5" />
+											Viene assolto in primo grado
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
 					<choice>
 						<title>Ok</title>
 						<effects>
@@ -229,62 +65,1165 @@
 				</choices>
 			</scene>
 			<scene>
-				<name>coup</name>
-				<title>Fuoco alle polveri</title>
+				<name>drogaGo</name>
+				<title>Scandalo di Governo</title>
 				<description>
-				Mentre vieni bersagliato dall'artiglieria ti rinchiudi nel tuo ufficio.
-				Dopo esserti barricato per alcuni minuti, una coltre di fumo di odore pungente riempie l'ufficio.
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+10" />
+										<set who="levels" what="security" delta="+10" />
+											Viene condannato in primo grado
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-15" />
+											Viene assolto in primo grado
+								</section>
+								
+							</sectionGroup>
 			</description>
-				<gameOver />
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>scandolaStay</name>
+				<title>Scandalo di Governo</title>
+				<description>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-15" />
+											Viene condannato in primo grado
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+5" />
+										<set who="levels" what="security" delta="+5" />
+											Viene assolto in primo grado
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>RandVacc</name>
+				<title>Vaccino</title>
+					<description>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="health" delta="-15" />
+										Il vaccino fallisce e muoino 50'000 persone
+								</section>
+								<section chance="50">
+										<set who="levels" what="health" delta="+20" />
+											Il  vaccino risulta particolarmente efficace
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>scandolaGo</name>
+				<title>Scandalo di Governo</title>
+				<description>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+10" />
+										<set who="levels" what="security" delta="+10" />
+											Viene condannato in primo grado
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-15" />
+											Viene assolto in primo grado
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</scene>
+			<scene>
+				<name>randVesc</name>
+				<title>Vescovo di Napoly</title>
+				<description>
+						<sectionGroup	chance="100">
+								<section chance="50">
+										<set who="levels" what="consensus" delta="-20" />
+											Il reato viene scoperto dal giornalista Aldo Giacomi, che ti accusa pubblicamente
+								</section>
+								<section chance="50">
+										<set who="levels" what="consensus" delta="+5" />
+											Il reato viene insabbiato con successo e il vescovo contribuisce alla tua propaganda
+								</section>
+								
+							</sectionGroup>
+			</description>
+			<choices>
+					<choice>
+						<title>Ok</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
 			</scene>
 		</scenes>
 		<questions>
 			<question>
-				<if who="checkpoints" what="virusDeveloped" is="false" />
-				<name>fondi_europei_scuola</name>
-				<title>Fondi Europei per la scuola</title>
+				<name>misureRestrittive</name>
+				<title>Misure restrittive</title>
 				<description>
-					L'unione Europea offre dei fondi per la scuola a patto di integrare i programmi scolastici con quelli degli altri stati
-					<if who="levels" what="consensus" lessThan="50">
-					I tuoi alleati di governo ti guardano con disappunto.
-				</if>
+				Considerata l'attuale situazione epidemiologica, è necessario rafforzare le misure restrittive?
 				</description>
-				<set who="checkpoints" what="virusMutated" to="true" />
 				<choices>
 					<choice>
-						<title>Certo</title>
+						<title>Sì</title>
 						<effects>
-						<goto scene="fondi_europei_scuola_yesno" />
+							<goto question="next" />
+							<set who="levels" what="economy" delta="-10" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="virus" what="Rt" delta="-0,2" />
 						</effects>
 					</choice>
 					<choice>
-						<title>Per niente!</title>
+						<title>No</title>
 						<effects>
-							<goto scene="fondi_europei_scuola_yesno" />
+							<goto question="next" />
+							<set who="levels" what="economy" delta="+10" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="virus" what="Rt" delta="+0,2" />
 						</effects>
 					</choice>
 				</choices>
 			</question>
+		
+		<questions>
+			<question>
+				<name>CrostaSconcordia</name>
+				<title>Nave incagliata</title>
+				<description>
+					La nave Crosta Discordia è rimasta incagliata a largo dell'isola del Ciglio, con a capo il Comandante Scattino. Lo scafo ha imbarcato acqua e la nave potrebbe affondare
+					<br />
+					Che cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Fai sì che la nave venga rimossa e le sue parti riutilizzate</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+15" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>No, costa troppo rimuoverla, meglio lasciarla lì</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-15" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>Partitini</name>
+				<title>Riforma elettorale</title>
+				<description>
+					Un gruppo di alcuni senatori e deputati ha proposto una riforma costituzionale al sistema elettorale, che sfavorirebbe i partiti di piccole dimensioni
+					<br />
+					Come desideri procedere?
+				</description>
+				<choices>
+					<choice>
+						<title>Ti dichiari favorevole</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Meglio osteggiare la riforma, d'altronde alcuni partiti che fanno parte della tua allenaza sono piuttosto ridotti</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>Sindacati</name>
+				<title>Sindacati</title>
+				<description>
+					Il Presidente del Sindacato dei Lavoratori Part-Time, Sergio Costa, ti chiede un incontro per stabilire un punto di accordo sulle condizioni lavorative di coloro che rappresenta
+				</description>
+				<choices>
+					<choice>
+						<title>Che dialogo inutile, sarebbe tempo sprecato</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="economy" delta="+10" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Va bene, incontriamoci!</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="economy" delta="-10" />
+							<set who="levels" what="consensus" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>Sparatoria in centro a Milano</name>
+				<title>>Sparatoria in centro a Milano</title>
+				<description>
+					Un poliziotto fuori servizio di nome Giorgio Sinodi ha utilizzato la sua pistola d'ordiananza per uccidere la moglie che lo aveva precedentemente tradito.
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Niente, non sono affari miei</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ti esponi pubblicamente a favore del poliziotto</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-15" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>antipandemia1</name>
+				<title>Antipandemia</title>
+				<description>
+					Il Ministro della Salute ti chiede di stanziare fondi per la prevenzione della malattia.
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta, nonostante il costo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="levels" what="economy" delta=" -10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti la richiesta, per poter utilizzare il denaro diversamente</title>
+						<effects>
+							<goto question="next" />
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="economy" delta=" +10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>Autostrade</name>
+				<title>Autostrade</title>
+				<description>
+					Il Ministro dei Trasporti ti chiede di stanziare fondi per la manutenzione delle autostrade.        </description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta, nonostante il costo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="sicurezza" delta="+10" />
+							<set who="levels" what="economy" delta=" -10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti la richiesta, per poter utilizzare il denaro diversamente</title>
+						<effects>
+							<goto question="next" />
+							<goto question="next" />
+							<set who="levels" what="economy" delta="-10" />
+							<set who="levels" what="health" delta=" +10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>Cesaropapismo</name>
+				<title>Cesaropapismo</title>
+				<description>
+					La Chiesa Assiomatica si propone di procacciarti il supporto della popolazione, pur di impedire la ricerca sulle cellule embrionali.
+					<br />
+					Cosa decidi di fare?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti la proposta</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="consensus" delta=" +10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Beh ecco...</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="health" delta=" +10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>cesaropapismo</name>
+				<title>Cesaropapismo</title>
+				<description>
+					La Chiesa Assiomatica si propone di procacciarti il supporto della popolazione, pur di impedire la ricerca sulle cellule embrionali.
+					<br />
+					Cosa decidi di fare?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti la proposta</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="consensus" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Beh ecco...</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="health" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>crocifissi</name>
+				<title>Crocifissi nelle scuole</title>
+				<description>
+					Un gruppo crescente di persone ti chiede di considerare se tenere o rimuovere i crocifissi nelle scuole.
+				</description>
+				<choices>
+					<choice>
+						<title>Ci penso immediatamente</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Certo ! (Magari il prossimo governo se ne occuperà)</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>crocifissi</name>
+				<title>Crocifissi nelle scuole</title>
+				<description>
+					Un gruppo crescente di persone ti chiede di considerare se tenere o rimuovere i crocifissi nelle scuole.
+				</description>
+				<choices>
+					<choice>
+						<title>Ci penso immediatamente</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Certo ! (Magari il prossimo governo se ne occuperà)</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>desertificazione</name>
+				<title>Desertificazione </title>
+				<description>
+					La regione della Sciglia si sta progressivimanente desertificando
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Non ci possiamo fare nulla</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="economy" delta="-5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Facciamo qualcosa!</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="economy" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>droga</name>
+				<title>Caso di droga nella tua alleanza di Parlamento</title>
+				<description>
+					Il tuo ministro dell'interno, Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo italiano
+					<br />
+					Come desideri procedere?
+				</description>
+				<choices>
+					<choice>
+						<title>Rimane in ufficio finchè condannato, sempre che sia colpevole</title>
+						<effects>
+							<goto scene="drogaStay" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Fuori dal mio governo</title>
+						<effects>
+							<goto scene="drogaGo" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>esercito</name>
+				<title>Nuove forze armate?</title>
+				<description>
+					Il Generale Padruolo ti propone di finanziare delle attività funzionali al rafforzamento dell'esercito italiano
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti e concedi il finanzimento</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti senza dilungarti troppo sulle motivazioni</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>fallimento</name>
+				<title>Fallimento di Jovani S.p.A.</title>
+				<description>
+					Elettrotecnica Jovani S.p.A., una grande realtà industriale con sede a Drato, sta spostando tutti i suoi impianti produttivi in Bangladesh.
+					<br />
+					I sindacati esercitano una forte pressione per impedire che ciò accada.
+				</description>
+				<choices>
+					<choice>
+						<title>Impedisci lo spostamento con incentivi statali</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ah perchè in italia si lavora anche?</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>femministe1</name>
+				<title>Movimento femminista</title>
+				<description>
+					Il partito %randPartyName%, sostenitore dei diritti delle donne, chiede uguaglianza tra gli stipendi di colleghi di differente sesso.
+					<br />
+					Il Ministro del Lavoro Giorgio Crispi lascia a te la scelta finale.
+				</description>
+				<choices>
+					<choice>
+						<title>Accogli con gioia la richiesta e prendi provvedimenti</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ritieni che sia una condizione già in atto</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>fuggitivo</name>
+				<title>Fuggitivo proveniente dalla Francia</title>
+				<description>
+					Un noto criminale è riuscito a fuggire da un carcere di massima sicurezza in Francia, recandosi in Italia. La Francia ti chiede di cercarlo all'interno tuoi confini.
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Porti avanti una ricerca nelle regioni limitrofe al confine</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="+5" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Decidi che non ne vale il costo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="security" delta="-5" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>giornalista</name>
+				<title>Giornalista ficcanaso</title>
+				<description>
+					Il giornalistaGirolamo Preti ha scritto un articolo sulla tua attuale gestione del Paese
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti le critiche e lo inviti a discuterne meglio di fronte ad una tazza di Caffé</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+		
+					<choice>
+						<title>Ti dimostri fortemente irritato dalle sue affermazioni ed eviti il dialogo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+						</effects>
+					</choice>
+		
+					<choice>
+						<title>Lo attacchi pubblicamente e lo fai licenziare grazie alla tua influenza</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="+5" />
+							<set who="levels" what="consensus" delta="-15" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>hello.joke</name>
+				<title>Is there anybody in there?</title>
+				<description>
+					Out of the corner of my eye
+		
+					I turned to look but it was gone
+					
+					I cannot put my finger on it now
+					
+					The child is grown
+					
+					The dream is gone
+					
+					I have become comfortably numb
+				</description>
+				<choices>
+					<choice>
+						<title>What?</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Cosa?</title>
+						<effects>
+							<goto question="next" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>inParlamento</name>
+				<title>In parlamento</title>
+				<description>
+				   %randPartyName%, segretario di %randPartySecretary%, critica l'operato del tuo governo riguardo alla scuola.
+				</description>
+				<choices>
+					<choice>
+						<title> Haha, un paritino del 4%</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="security" delta="-5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Cos'è la scuola?</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="security" delta="+5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Non è vero</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="-3" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>milva</name>
+				<title>Stabilimento MIlva</title>
+				<description>
+					Uno stabilimento della Milva locato a Traranto sta causando un aumento consistente dei casi di cancro in tutta la popolazione la circostante.
+					<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Proponi la chiusura dello stabilimento</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Insisti sulla necessità di mantenere operativo lo stabilimento</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+				<choice>
+					<title>Istituisci un commissario che si occupi della questione</title>
+					<effects>
+						<goto question="next" />
+					</effects>
+				</choice>
+			</question>
+		
+		
+		
+			<question>
+				<name>manifestazione</name>
+				<title>Manifestazione di fronte a Palazzo Thigi</title>
+				<description>
+					Un gruppo di persone sta generando scompiglio di fronte alla sede della Presidenza del Consiglio, in protesta per le attuali condizioni lavorative.
+					<br />
+					Che cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Disperdi i manifestanti</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="+10" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Accetti che una delegazione venga a discutere all'interno del Palazzo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="-5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+			<question>
+				<name>misureSanitarie</name>
+				<title>Misure sanitarie</title>
+				<description>
+					Il Ministro della Salute ti chiede di stanziare fondi per misure sanitarie più stringenti
+					<br />
+					Cosa decidi?
+				</description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta, nonostante il costo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ritieni che sia una condizione già in atto</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>Monsatero</name>
+				<title>Monastero</title>
+				<description>
+					Il Phapa ti propone la ristrutturazione di un antico monastero situato sugli appennini. Uhmm....
+				</description>
+				<choices>
+					<choice>
+						<title>Acconsenti e concedi il denaro</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Declini, invitando il Phapa ad attuare il rinnovamento del monastero con i propri fondi</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>open</name>
+				<title>Open Source</title>
+				<description>
+					Il ministro per la trasformazione digitale propone di imporre l'utilizzo di software open source per tutti gli enti pubblici
+				</description>
+				<choices>
+					<choice>
+						<title>Cambiate tutto subito</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-15" />
+						</effects>
+					</choice>
+					<choice>
+						<title>No, è troppo complicato</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Procediamo con un cambiamento graduale</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>ostruzionismo</name>
+				<title>Ostruzionismo in parlamento</title>
+				<description>
+				   
+					Il partito %randPartyName% si oppone alla messa in atto di misure restrittive da parte del tuo governo.
+		
+					%randPartySecretary%, in un'intervista radiofonica ha dichiarato
+					
+					«%playerName% è un incompetente autoritario e deve essere fermato il prima possibile»
+					
+					Come pensi di reagire a quest'accusa
+		
+				</description>
+				<choices>
+					<choice>
+						<title>Cerca di negoziare con %randPartyName%</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="health" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Prenditi gioco di %randPartySecretary% in diretta televisiva in un programma di Phazio</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="health" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>petroliera</name>
+				<title>Petroliera incagliata</title>
+				<description>
+					Un nave che trasportava petrolio ha riportato una faglia nello scafo dopo essersi scontrata ed incagliata nella costa amalfitana, cominciando a riversare il suo contenuto nel mare.
+								<br />
+					Cosa fai?
+				</description>
+				<choices>
+					<choice>
+						<title>Ottieni che la nave venga riparata</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Non prendi altre contromisure</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+			<question>
+				<name>ponte</name>
+				<title>Crollo ponte Gianni</title>
+				<description>
+					Il Ponte Gianni è crollato da un mese ormai. I cittadini ti chiedono di trovare il colpevole Come desideri procedere?
+				</description>
+				<choices>
+					<choice>
+						<title>Attui un procedimento volto a trovare i reali responsabili, anche se costoso</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+							<set who="levels" what="security" delta="+5" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Fuori dal mio governo</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+							<set who="levels" what="security" delta="-5" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>randomChemistryTrivia</name>
+				<title>Acido perclorico</title>
+				<description>
+					Qual'è di questi?
+						</description>
+				<choices>
+					<choice>
+						<title>HClO3</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>HClO4</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>HClO2</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>Riciclaggio</name>
+				<title>Riciclaggio</title>
+				<description>
+					Il Ministro dell'economia Fabrizio Briziti chiede di aiutarlo a riciclare del denaro proveniente dallo spaccio di droga. 
+					<br />
+					Come ti comporti?
+						</description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta, consapevole dell'incentivo al commercio di droga</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti la richiesta e denunci il Ministro</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>riforma</name>
+				<title>Riforma</title>
+				<description>
+					L'Europa ti chiede una serie di riforme sul piano economico
+								<br />
+					Come desideri procedere?
+								</description>
+				<choices>
+					<choice>
+						<title>Si è vero, sono necessarie, ma non tutti potrebbero comprenderne l'efficacia</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="economy" delta="+10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>No, non servono</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+10" />
+							<set who="levels" what="economy" delta="-10" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Basta, fuori dall'Europa</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-10" />
+							<set who="levels" what="economy" delta="-15" />
+							<set who="levels" what="security" delta="-15" />
+							<set who="levels" what="health" delta="-10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>scandola</name>
+				<title>Scandalo di governo</title>
+				<description>
+					Il tuo ministro dell'interno, Giovanni Giorgio è sotto inchiesta per corruzione e abuso d'ufficio.                      
+					  <br />
+					Come desideri procedere?
+								</description>
+				<choices>
+					<choice>
+						<title>Rimane in ufficio finchè condannato</title>
+						<effects>
+							<goto scene="scandolaStay" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Fuori dal mio governo</title>
+						<effects>
+							<goto scene="scandolaGo" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>terremoto</name>
+				<title>Terremoto nelle SMarche</title>
+				<description>
+					Terremoto nelle SMarche              <br />
+					Come desideri procedere?
+								</description>
+				<choices>
+					<choice>
+						<title>Ti rechi personalmente sul luogo e prometti aiuto e sostegni</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="+5" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Lo consideri uno spreco del tuo tempo e rimani in ufficio</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="consensus" delta="-5" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>vaccino1</name>
+				<title>Vaccino non testato</title>
+				<description>
+					Un Paese straniero ti propone di utilizzare su larga scala un vaccino non testato sulla tua popolazione. 
+					<br />
+					Come ti comporti?
+								</description>
+				<choices>
+					<choice>
+						<title>Ti dichiari favorevole</title>
+						<effects>
+							<goto scene="randVacc" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Ti dichari sfavorevole</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="+10" />
+							<set who="levels" what="consensus" delta="-10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
+		
+		
+			<question>
+				<name>vescovo</name>
+				<title>Vescovo di Napoly</title>
+				<description>
+					Il vescovo di Napoly è stato accusato di molestie sessuali da parte di un gruppo di giovani ragazzi. Egli ti chiede di insabbiare la questione            <br />
+					Come ti comporti?
+								</description>
+				<choices>
+					<choice>
+						<title>Accetti la richiesta e insabbi la questione</title>
+						<effects>
+							<goto scene="randVesc" />
+						</effects>
+					</choice>
+					<choice>
+						<title>Rifiuti la richiesta e lo denunci pubblicamente, pur sapendo lo scompiglio che ciò porterebbe</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="security" delta="-5" />
+							<set who="levels" what="consensus" delta="+10" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
 		</questions>
 	</sections>
-	<viruses>
-		<virus>
-			<name>eys</name>
-			<title>eys-1</title>
-			<description>Descrizione</description>
-			<stats>
-				<transmissionSpeed>1</transmissionSpeed>
-				<lethality>1</lethality>
-				<hospitalizationRate>1</hospitalizationRate>
-			</stats>
-			<infoboxes>
-				<infobox>
-					<title>Infobox1</title>
-					<description>Testo</description>
-				</infobox>
-			</infoboxes>
-		</virus>
-	</viruses>
 	<parties>
 		<party>
 			<name>partito_giallo</name>
@@ -297,7 +1236,7 @@
 			<name>no_al_5g</name>
 			<title>No al 5G</title>
 			<secretary>Giovanna Vogheri</secretary>
-			<description>Un partito il cui interesse esclusivo è bandire il 5G, quale emissario di Satana,</description>
+			<description>Un partito il cui interesse esclusivo è bandire il 5G, quale emissario di Satana</description>
 			<motto>Uniti nella nostra APERTURA MENTALE</motto>
 		</party>
 		<party>
@@ -357,9 +1296,77 @@
 			<motto>BASTA POWERPOINT BASTAAAAAAAAAA: Usate Prezi por favor</motto>
 		</party>
 	</parties>
+	<viruses>
+		<virus>
+			<name>covvidi-21</name>
+			<title>COVIDDI-21</title>
+			<levels>
+				<Rt>1</Rt>
+				<lethality>2.5</lethality>
+			</levels>
+			<infoboxes>
+				<infobox>Gli scienziati dell'Academia di Salomone hanno scoperto un nuovo coronavirus. Esso è un virus ad RNA che si trasmette per via aerea ed è potenzialmente pandemico</infobox>
+				<infobox>I sintomi inziali sono solitamente tosse, febbre, mal di testa e vomito, ma le conseguenze possono essere ben più gravi.</infobox>
+				<infobox>L'Istituto Nazionale di Statistica ha calcolato che questo virus ha una letalità del 1% e un Rt di 2,5. Gli esperti ti chiedono di adottare misure di sicurezza per ridurne la diffusione</infobox>
+				<infobox>Secondo le ricerche condotte dall'Accademia di Salomone, questo virus è fuggito dal laboratorio di microbiologia "Matteo Koothrappali"</infobox>
+				<infobox>Grazie al lavoro del team di Roberto Marconi è stato scoperto il meccanismo di azione del virus, basato sulla proteina NIKE</infobox>
+				<infobox>Dopo un accurata indagine realizzata dall'Accademia di Salomone in collaborazione con i servizi segreti, si è scoperto che in realtà questo virus viene dagli armadilli</infobox>
+				<infobox>È stato scoperto un vaccino!</infobox>
+			</infoboxes>
+			<mutations>
+				<mutation>
+					<name>toriniese</name>
+					<title>Variante toriniese</title>
+					<description>Nella periferia di Torinia, abitata da molti no-mask, si è sviluppata una nuova variante del virus, ancora più contagiosa</description>
+					<levels>
+						<Rt>0.9</Rt>
+						<lethality>3.5</lethality>
+					</levels>
+				</mutation>
+				<mutation>
+					<name>turcomanna</name>
+					<title>Variante turcomanna</title>
+					<description>È stata scoperta una nuova variante del virus proveniente dalla fiera nazionale del cavallo turcomanno. È meno molto più mortale. Metti al riparo gli anziani e le categorie fragili!</description>
+					<levels>
+						<Rt>1,5</Rt>
+						<lethality>10</lethality>
+					</levels>
+				</mutation>
+				<mutation>
+					<name>pasquale</name>
+					<title>Variante pasquale</title>
+					<description>Durante le celebrazioni religiose pasquali si è diffusa una nuova variante. È molto più pericolosa delle altre e sarà difficile estirparla</description>
+					<levels>
+						<Rt>3</Rt>
+						<lethality>10</lethality>
+					</levels>
+				</mutation>
+				<mutation>
+					<name>falciforme</name>
+					<title>Variante falciforme</title>
+					<description>Questa variante si chiama così per la strana forma che assume la proteina NIKE modificata. Molto contagiosa ma con una mortalità molto più bassa.</description>
+					<levels>
+						<Rt>3,5</Rt>
+						<lethality>0,5</lethality>
+					</levels>
+				</mutation>
+				<mutation>
+					<name>vip</name>
+					<title>Variante vip</title>
+					<description>I locali mondani dell'isola della Gherba non hanno rispettato il tuo ultimo DPCM, per questo si è diffusa una nuova variante</description>
+					<levels>
+						<Rt>2</Rt>
+						<lethality>2,75</lethality>
+					</levels>
+				</mutation>
+			</mutations>
+		</virus>
+	</viruses>
 	<misc>
-		<welcomeMessage scrollDelay="400" duration="10" direction="up">
-		Testo di prova
+	<welcomeMessage scrollDelay="400" duration="10" direction="up">
+		Araldia, 2312
+		----Stampa associata----
+		Il nuovo presidente si insedia, il paese attende ansioso cambiamenti dal governo
 		</welcomeMessage>
 	</misc>
 </Araldia>
