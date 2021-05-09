@@ -158,15 +158,6 @@
 	#beginSect {
 		display: none;
 	}
-		#beginSect2 {
-		display: none;
-		position: fixed;
-		top:0px;
-		right:0px;
-		height:100vh;
-		width:100vw;
-		z-index:9999;
-	}
 
 	#tooTpk {
 		position: absolute;
@@ -255,11 +246,6 @@
 	<br />
 	<br />
 	<br />
-		<div id="beginSect2">
-				<br />
-				<marquee width="60%" direction="up" height="400px;" scrolldelay="400" id="mq2">
-				</marquee>
-			</div>
 	<div id="content">
 		<center>
 			<div id="virusBeginOhNo" class="closableVir"> </div>
@@ -538,33 +524,6 @@
 			</scene>
 		</scenes>
 		<questions>
-			<question>
-				<name>misureRestrittive</name>
-				<title>Misure restrittive</title>
-				<description>
-				Considerata l'attuale situazione epidemiologica, è necessario rafforzare le misure restrittive?
-				</description>
-				<choices>
-					<choice>
-						<title>Sì</title>
-						<effects>
-							<goto question="next" />
-							<set who="levels" what="economy" delta="-10" />
-							<set who="levels" what="health" delta="+10" />
-							<set who="virus" what="Rt" delta="-0,2" />
-						</effects>
-					</choice>
-					<choice>
-						<title>No</title>
-						<effects>
-							<goto question="next" />
-							<set who="levels" what="economy" delta="+10" />
-							<set who="levels" what="health" delta="-10" />
-							<set who="virus" what="Rt" delta="+0,2" />
-						</effects>
-					</choice>
-				</choices>
-			</question>
 			<question>
 				<name>CrostaSconcordia</name>
 				<title>Nave incagliata</title>
@@ -1706,9 +1665,7 @@
 	</viruses>
 	<misc>
 		<welcomeMessage scrollDelay="400" duration="10" direction="up">
-		Araldia, 2312
-		----Stampa associata----
-		Il nuovo presidente si insedia, il paese attende ansioso cambiamenti dal governo
+		Testo di prova
 		</welcomeMessage>
 	</misc>
 </Araldia>
@@ -1741,7 +1698,6 @@
 	}
 
 	function recurseget(who, what) {
-		//deprecated
 		var ac = what.split("|")
 		if (gameVars[who] == undefined) gameVars[who] = {};
 		var cVal = gameVars[who][what[0]];
@@ -1755,9 +1711,7 @@
 		return cVal;
 	}
 	function gvRead(who, what) {
-		if (gameVars[who] == undefined) return 0;
-		if (gameVars[who][what]  == undefined) return 0;
-		return gameVars[who][what] ;
+		return recurseget(who, what);
 	}
 	function randomInteger(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -1781,7 +1735,6 @@
 			}
 			else if (parseInt(gvRead(who, what)) < 0) {
 				gameVars[who][what] = 0;
-				gameOver();
 			}
 			if (who == "levels") updateLevelGraphically(what, gameVars[who][what])
 		}
@@ -2082,32 +2035,7 @@ function upGrData(){
 		chart.draw(data, options);
 
 }
-function gameOver(){
-	audio.src="music/end.mp3";
-	audio.play();
-	
-		$("#beginSect2").fadeIn();
-		$("#mq2").html(`
-		<pre>
-			
-		Game Over
-			
-			
-			
-			
-		Araldia
-		
-		&copy; 2021
-		Mattia Mascarello
-		Diego Scanavino
-		Giacomo Roggero
-		
-		Musica: RoleMusic
-		</pre>
-		<a href="javascript:location.reload();">Riavvia</a>
-		`);
-	
-}
+
 	var i = 0, childrenEl = null, tHtml = "",chart=null,tick=0,chart=null;
 	parser = new DOMParser();
 	xmlDoc = parser.parseFromString(text, "text/xml");
@@ -2145,7 +2073,7 @@ function gameOver(){
 
 			var data = google.visualization.arrayToDataTable([
           ['Categoria', 'Persone'],
-          ['Sani',     6000000],
+          ['Sani',     60000000],
           ['Infetti',      0],
           ['Immuni',  0],
           ['Morti', 0]
@@ -2175,14 +2103,12 @@ function gameOver(){
 
 	var randMap={};
 		function randEl(category) {
-		if(!randMap[category]) randMap[category]=[0];	
-		if(randMap[category].length==cats.getElementsByTagName(category)[0].childElementCount) randMap[category]=[0];
-		if(tick%5==0) return cats.getElementsByTagName(category)[0].children[0];
-		var imx=imx=randomInteger(0, cats.getElementsByTagName(category)[0].childElementCount - 1);
+		if(!randMap[category]) randMap[category]=[];	
+		if(randMap[category].length==cats.getElementsByTagName(category)[0].childElementCount) randMap[category]=[];
+		var imx=0;
 		while(randMap[category].indexOf(imx)>-1){
-			imx=randomInteger(0, cats.getElementsByTagName(category)[0].childElementCount - 1);
+			imx=randomInteger(0, cats.getElementsByTagName(category)[0].childElementCount - 1)
 		}
-		randMap[category].push(imx);
 		return cats.getElementsByTagName(category)[0].children[imx];
 	}
 	function getEl(category, name) {
@@ -2205,27 +2131,8 @@ function gameOver(){
 		gameVars.player.actionN++;
 	}
 	function Q() {
-		lastVircb=null;
 		var h = randEl("questions");
-		if(tick%5==0 && tick!=0){
-			$("#gameField").hide();
-		gameVars["virus"]["infoboxLastI"] ++;
-			$("#virusBeginOhNo").show();
-			var infoId=gameVars["virus"]["infoboxLastI"] ;
-			var el=cats.getElementsByTagName("viruses")[virusIndex];
-			try{
-		  	var text = el.getElementsByTagName("infoboxes")[0].children[infoId].textContent;
-		  	if(tet==undefined) throw "un";
-		  	}
-		  	catch(e){
-		  		$("gameField").show();
-		  		$("virusBeginOhNo").hide();
-		  	}
-		$("#virusBeginOhNo").html("<br/><br/><br/><br/><br/><br/><br/><h1>Bollettino</h1><br /><p class=\"wbb\">" + text + "</p><button type=\"button\" class=\"okVir nes-btn is-primary\">OK</button>");
-		}
-		
 		setField(h);
-			
 		/*if(tick%5==0 && tick!=0) */ calcvir();
 		tick++;
 	}
@@ -2431,7 +2338,7 @@ function gameOver(){
 
 		upGrData();
 	}
-	var lastVircb=null,virusIndex=0;
+	var lastVircb=null;
 	function initRandVirus(cb) {
 		lastVircb=cb;
 		setTimeout(function(){
@@ -2439,9 +2346,8 @@ function gameOver(){
 		audio.volume=1;
 		audio.play()
 		},5000);
-		var li = window.cats.getElementsByTagName("viruses")[0].children;
+		var li = cats.getElementsByTagName("viruses")[0].children;
 		var Iindex = randomInteger(0, li.length - 1);
-		virusIndex=Iindex;
 		var el = li[Iindex];
 		var title = el.getElementsByTagName("title")[0].textContent;
 		var text = el.getElementsByTagName("infoboxes")[0].children[0].textContent;
@@ -2451,11 +2357,11 @@ function gameOver(){
 		gameVars["virus"]["people"]["dead"]=0;
 		gameVars["virus"]["people"]["immune"]=0;
 		gameVars["virus"]["people"]["infected"]=randomInteger(30,200);
-		gameVars["virus"]["people"]["healthy"]=6000000;
+		gameVars["virus"]["people"]["healthy"]=60000;
 
 		gameVars["virus"]["title"] = title;
 		gameVars["virus"]["infoboxLastI"] = 0;
-	// deprecated	gameVars["virus"]["stepsBeforeShowDashboard"] = randomInteger(3, 10);
+		gameVars["virus"]["stepsBeforeShowDashboard"] = randomInteger(3, 10);
 		gameVars["virus"]["dashboardShown"] = false;
 		gameVars["virus"]["Iindex"] = Iindex;
 		gameVars["virus"]["lethality"] = parseFloat(el.getElementsByTagName("levels")[0].getElementsByTagName("lethality")[0].textContent);
