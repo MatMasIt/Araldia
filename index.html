@@ -6,7 +6,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+<meta charset="UTF-8" />
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <script>
@@ -17,6 +19,14 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <style>
+	#musicBox {
+		position: fixed;
+		top:10px;
+		left: 10px;
+		z-index: 99999999999;
+		display: none;
+	}
+
 	.wbb {
 		width: 60vw;
 		word-break: break-word;
@@ -235,6 +245,11 @@
 			<div id="levels"></div>
 		</center>
 	</header>
+	<div class="nes-container is-rounded is-dark" id="musicBox">
+		<p id="mTitle">sss</p>
+			<button onclick="DAudio(-1)"><i class="fa fa-volume-down" aria-hidden="true"></i></button>
+			<button onclick="DAudio(+1)"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
+	</div>
 	<br />
 	<br />
 	<br />
