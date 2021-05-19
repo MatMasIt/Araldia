@@ -4,7 +4,7 @@
 		<value>
 			<name>health</name>
 			<title>Salute</title>
-			<description>Coff.. coff.. Una poplazione in salute potrebbe essere utile</description>
+			<description>Coff.. coff.. Una popolazione in salute potrebbe essere utile</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
@@ -521,7 +521,7 @@
 				<name>droga</name>
 				<title>Caso di droga nella tua alleanza di Parlamento</title>
 				<description>
-					Il tuo ministro dell'interno, Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo Araldico
+					Il tuo ministro dell'interno Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo Araldico
 					<br />
 					Come desideri procedere?
 				</description>
@@ -660,7 +660,7 @@
 				<name>giornalista</name>
 				<title>Giornalista ficcanaso</title>
 				<description>
-					Il giornalistaGirolamo Preti ha scritto un articolo sulla tua attuale gestione del Paese
+					Il giornalista Girolamo Preti ha scritto un articolo sulla tua attuale gestione del Paese
 					<br />
 					Cosa fai?
 				</description>
@@ -734,7 +734,7 @@
 				</description>
 				<choices>
 					<choice>
-						<title> Haha, un paritino del 4%</title>
+						<title> Haha, un paritino al 4%</title>
 						<effects>
 							<goto question="next" />
 							<set who="levels" what="consensus" delta="+10" />
@@ -860,7 +860,7 @@
 				<name>Monsatero</name>
 				<title>Monastero</title>
 				<description>
-					Il Phapa ti propone la ristrutturazione di un antico monastero situato sugli appennini. Uhmm....
+					Il Phapa ti propone la ristrutturazione di un antico monastero situato sugli Appendini. Uhmm....
 				</description>
 				<choices>
 					<choice>
@@ -1305,7 +1305,7 @@
 				<lethality>2.5</lethality>
 			</levels>
 			<infoboxes>
-				<infobox>Gli scienziati dell'Academia di Salomone hanno scoperto un nuovo coronavirus. Esso è un virus ad RNA che si trasmette per via aerea ed è potenzialmente pandemico</infobox>
+				<infobox>Gli scienziati dell'Accademia di Salomone hanno scoperto un nuovo coronavirus. Esso è un virus ad RNA che si trasmette per via aerea ed è potenzialmente pandemico</infobox>
 				<infobox>I sintomi inziali sono solitamente tosse, febbre, mal di testa e vomito, ma le conseguenze possono essere ben più gravi.</infobox>
 				<infobox>L'Istituto Nazionale di Statistica ha calcolato che questo virus ha una letalità del 1% e un Rt di 2,5. Gli esperti ti chiedono di adottare misure di sicurezza per ridurne la diffusione</infobox>
 				<infobox>Secondo le ricerche condotte dall'Accademia di Salomone, questo virus è fuggito dal laboratorio di microbiologia "Matteo Koothrappali"</infobox>
