@@ -117,7 +117,7 @@
 				</choices>
 			</scene>
 			<scene>
-				<name>RandVacc</name>
+				<name>randVacc</name>
 				<title>Vaccino</title>
 					<description>
 						<sectionGroup	chance="100">
@@ -521,7 +521,7 @@
 				<name>droga</name>
 				<title>Caso di droga nella tua alleanza di Parlamento</title>
 				<description>
-					Il tuo ministro dell'interno, Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo italiano
+					Il tuo ministro dell'interno, Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo Araldico
 					<br />
 					Come desideri procedere?
 				</description>
@@ -546,7 +546,7 @@
 				<name>esercito</name>
 				<title>Nuove forze armate?</title>
 				<description>
-					Il Generale Padruolo ti propone di finanziare delle attività funzionali al rafforzamento dell'esercito italiano
+					Il Generale Padruolo ti propone di finanziare delle attività funzionali al rafforzamento dell'esercito Araldico
 					<br />
 					Cosa fai?
 				</description>
@@ -587,7 +587,7 @@
 						</effects>
 					</choice>
 					<choice>
-						<title>Ah perchè in italia si lavora anche?</title>
+						<title>Ah perchè in Araldia si lavora anche?</title>
 						<effects>
 							<goto question="next" />
 							<set who="levels" what="consensus" delta="-5" />
@@ -629,7 +629,7 @@
 				<name>fuggitivo</name>
 				<title>Fuggitivo proveniente dalla Francia</title>
 				<description>
-					Un noto criminale è riuscito a fuggire da un carcere di massima sicurezza in Francia, recandosi in Italia. La Francia ti chiede di cercarlo all'interno tuoi confini.
+					Un noto criminale è riuscito a fuggire da un carcere di massima sicurezza in Francia, recandosi in Araldia. La Francia ti chiede di cercarlo all'interno tuoi confini.
 					<br />
 					Cosa fai?
 				</description>
@@ -1018,7 +1018,7 @@
 				<name>randomChemistryTrivia</name>
 				<title>Acido perclorico</title>
 				<description>
-					Qual'è di questi?
+					Qual è di questi?
 						</description>
 				<choices>
 					<choice>
