@@ -2,13 +2,13 @@
 <html>
 <title>Araldia</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
-<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <script>
@@ -19,14 +19,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <style>
-	#musicBox {
-		position: fixed;
-		top:10px;
-		left: 10px;
-		z-index: 99999999999;
-		display: none;
-	}
-
 	.wbb {
 		width: 60vw;
 		word-break: break-word;
@@ -34,6 +26,7 @@
 
 	#levels {
 		font-size: 27px;
+		z-index:9999!important;
 	}
 
 	footer {
@@ -157,10 +150,9 @@
 	#countV {
 		position: fixed;
 		top: 10px;
-		right: 11vw;
-		width: 10vw;
-		max-height:350px;
+		right: 10px;
 		display: none;
+		width: 15vw;
 		z-index: 99;
 		background-color: transparent;
 	}
@@ -168,10 +160,27 @@
 	#beginSect {
 		display: none;
 	}
+		#beginSect2 {
+		display: none;
+		position: fixed;
+		top:0px;
+		right:0px;
+		height:100vh;
+		width:100vw;
+		z-index:9999;
+	}
 
 	#tooTpk {
-		position: absolute;
-		z-index: 9;
+		position: fixed;
+		z-index: 99999999999;
+		display: none;
+	}
+	
+	#musicBox {
+		position: fixed;
+		top:10px;
+		left: 10px;
+		z-index: 99999999999;
 		display: none;
 	}
 
@@ -214,14 +223,44 @@
 			<img src="mdglogo.png" id="splashImg" />
 		</center>
 	</div>
+	
+		<div class="nes-container is-rounded is-dark" id="musicBox">
+		<p id="mTitle"></p>
+		<button onclick="noaud()" style="background-color:black"><i class="fa fa-volume-off" aria-hidden="true"></i></button>
+			<button onclick="DAudio(-10)" style="background-color:black"><i class="fa fa-volume-down" aria-hidden="true"></i></button>
+			<button onclick="DAudio(+10)" style="background-color:black"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
+			
+	</div>
+		<script>
+			setInterval(function(){
+				try{
+					var g=audio.src.split("/");
+				$("#mTitle").text("Volume:"+Math.round(audio.volume*100)+"%");
+				}
+				catch(e){
+					
+				}
+			},100);
+			function DAudio(a){
+				if( (audio.volume+(a*0.01)< 0 ) || (audio.volume+(a*0.01) > 1) ) return false;
+				audio.volume+=(a*0.01);
+			}
+			function noaud(){
+				audio.volume=0;
+			}
+			</script>
+	
 	<div class="nes-container is-rounded is-dark" id="tooTpk">
 		<p id="tooltT">Good morning. Thou hast had a good night's sleep, I hope.</p>
 	</div>
-	<div class="nes-container with-title is-centered" id="countV">
+	
+<div class="nes-container with-title is-centered" id="countV"> 
 		<p class="title" style="background-color: black;" id="vName"></p>
-		<i id="vDesc"></i>
-		<iv id="cts"></div>
-	</div>
+		 		<i id="vDesc"></i> 		
+		 		<div id="cts"></div> 	
+		 		</div>
+
+
 	<div class="nes-container with-title is-centered" id="error">
 		<p class="title" style="background-color: black;">Errore!</p>
 		<p id="errorData"></p>
@@ -242,14 +281,9 @@
 		<h1>Araldia</h1>
 		<i>Presidente, abbiamo bisogno del suo aiuto!</i>
 		<center>
-			<div id="levels"></div>
+			<div id="levels" style="z-index:9999999999;"></div>
 		</center>
 	</header>
-	<div class="nes-container is-rounded is-dark" id="musicBox">
-		<p id="mTitle">sss</p>
-			<button onclick="DAudio(-1)"><i class="fa fa-volume-down" aria-hidden="true"></i></button>
-			<button onclick="DAudio(+1)"><i class="fa fa-volume-up" aria-hidden="true"></i></button>
-	</div>
 	<br />
 	<br />
 	<br />
@@ -261,6 +295,12 @@
 	<br />
 	<br />
 	<br />
+		<div id="beginSect2">
+				<br />
+				<marquee width="60%" direction="up" height="400px;" scrolldelay="400" id="mq2">
+				</marquee>
+				<a href="javascript:location.reload();">Riavvia</a>
+			</div>
 	<div id="content">
 		<center>
 			<div id="virusBeginOhNo" class="closableVir"> </div>
@@ -293,7 +333,7 @@
 	<br />
 
 	<footer>
-		<h5><span style="display:inline-block;transform: rotate(180deg);">&copy;</span> 2021, Mattia Mascarello, Diego
+		<h5> 2021, Mattia Mascarello, Diego
 			Scanavino, Giacomo Roggero</h5>
 	</footer>
 
@@ -349,7 +389,7 @@
 		<value>
 			<name>health</name>
 			<title>Salute</title>
-			<description>Coff.. coff.. Una poplazione in salute potrebbe essere utile</description>
+			<description>Coff.. coff.. Una popolazione in salute potrebbe essere utile</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
@@ -462,7 +502,7 @@
 				</choices>
 			</scene>
 			<scene>
-				<name>RandVacc</name>
+				<name>randVacc</name>
 				<title>Vaccino</title>
 					<description>
 						<sectionGroup	chance="100">
@@ -538,6 +578,35 @@
 				</choices>
 			</scene>
 		</scenes>
+		<questions>
+			<question>
+				<name>misureRestrittive</name>
+				<title>Misure restrittive</title>
+				<description>
+				Considerata l'attuale situazione epidemiologica, è necessario rafforzare le misure restrittive?
+				</description>
+				<choices>
+					<choice>
+						<title>Sì</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="economy" delta="-10" />
+							<set who="levels" what="health" delta="+10" />
+							<set who="virus" what="Rt" delta="-0,2" />
+						</effects>
+					</choice>
+					<choice>
+						<title>No</title>
+						<effects>
+							<goto question="next" />
+							<set who="levels" what="economy" delta="+10" />
+							<set who="levels" what="health" delta="-10" />
+							<set who="virus" what="Rt" delta="+0,2" />
+						</effects>
+					</choice>
+				</choices>
+			</question>
+		
 		<questions>
 			<question>
 				<name>CrostaSconcordia</name>
@@ -623,8 +692,8 @@
 		
 		
 			<question>
-				<name>Sparatoria in centro a Milano</name>
-				<title>>Sparatoria in centro a Milano</title>
+				<name>Sparatoria in centro a Mylano</name>
+				<title>Sparatoria in centro a Mylano</title>
 				<description>
 					Un poliziotto fuori servizio di nome Giorgio Sinodi ha utilizzato la sua pistola d'ordiananza per uccidere la moglie che lo aveva precedentemente tradito.
 					<br />
@@ -837,7 +906,7 @@
 				<name>droga</name>
 				<title>Caso di droga nella tua alleanza di Parlamento</title>
 				<description>
-					Il tuo ministro dell'interno, Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo italiano
+					Il tuo ministro dell'interno Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo Araldico
 					<br />
 					Come desideri procedere?
 				</description>
@@ -862,7 +931,7 @@
 				<name>esercito</name>
 				<title>Nuove forze armate?</title>
 				<description>
-					Il Generale Padruolo ti propone di finanziare delle attività funzionali al rafforzamento dell'esercito italiano
+					Il Generale Padruolo ti propone di finanziare delle attività funzionali al rafforzamento dell'esercito Araldico
 					<br />
 					Cosa fai?
 				</description>
@@ -903,7 +972,7 @@
 						</effects>
 					</choice>
 					<choice>
-						<title>Ah perchè in italia si lavora anche?</title>
+						<title>Ah perchè in Araldia si lavora anche?</title>
 						<effects>
 							<goto question="next" />
 							<set who="levels" what="consensus" delta="-5" />
@@ -945,7 +1014,7 @@
 				<name>fuggitivo</name>
 				<title>Fuggitivo proveniente dalla Francia</title>
 				<description>
-					Un noto criminale è riuscito a fuggire da un carcere di massima sicurezza in Francia, recandosi in Italia. La Francia ti chiede di cercarlo all'interno tuoi confini.
+					Un noto criminale è riuscito a fuggire da un carcere di massima sicurezza in Francia, recandosi in Araldia. La Francia ti chiede di cercarlo all'interno tuoi confini.
 					<br />
 					Cosa fai?
 				</description>
@@ -976,7 +1045,7 @@
 				<name>giornalista</name>
 				<title>Giornalista ficcanaso</title>
 				<description>
-					Il giornalistaGirolamo Preti ha scritto un articolo sulla tua attuale gestione del Paese
+					Il giornalista Girolamo Preti ha scritto un articolo sulla tua attuale gestione del Paese
 					<br />
 					Cosa fai?
 				</description>
@@ -1050,7 +1119,7 @@
 				</description>
 				<choices>
 					<choice>
-						<title> Haha, un paritino del 4%</title>
+						<title> Haha, un paritino al 4%</title>
 						<effects>
 							<goto question="next" />
 							<set who="levels" what="consensus" delta="+10" />
@@ -1176,7 +1245,7 @@
 				<name>Monsatero</name>
 				<title>Monastero</title>
 				<description>
-					Il Phapa ti propone la ristrutturazione di un antico monastero situato sugli appennini. Uhmm....
+					Il Phapa ti propone la ristrutturazione di un antico monastero situato sugli Appendini. Uhmm....
 				</description>
 				<choices>
 					<choice>
@@ -1334,7 +1403,7 @@
 				<name>randomChemistryTrivia</name>
 				<title>Acido perclorico</title>
 				<description>
-					Qual'è di questi?
+					Qual è di questi?
 						</description>
 				<choices>
 					<choice>
@@ -1621,7 +1690,7 @@
 				<lethality>2.5</lethality>
 			</levels>
 			<infoboxes>
-				<infobox>Gli scienziati dell'Academia di Salomone hanno scoperto un nuovo coronavirus. Esso è un virus ad RNA che si trasmette per via aerea ed è potenzialmente pandemico</infobox>
+				<infobox>Gli scienziati dell'Accademia di Salomone hanno scoperto un nuovo coronavirus. Esso è un virus ad RNA che si trasmette per via aerea ed è potenzialmente pandemico</infobox>
 				<infobox>I sintomi inziali sono solitamente tosse, febbre, mal di testa e vomito, ma le conseguenze possono essere ben più gravi.</infobox>
 				<infobox>L'Istituto Nazionale di Statistica ha calcolato che questo virus ha una letalità del 1% e un Rt di 2,5. Gli esperti ti chiedono di adottare misure di sicurezza per ridurne la diffusione</infobox>
 				<infobox>Secondo le ricerche condotte dall'Accademia di Salomone, questo virus è fuggito dal laboratorio di microbiologia "Matteo Koothrappali"</infobox>
@@ -1679,8 +1748,10 @@
 		</virus>
 	</viruses>
 	<misc>
-		<welcomeMessage scrollDelay="400" duration="10" direction="up">
-		Testo di prova
+	<welcomeMessage scrollDelay="400" duration="10" direction="up">
+		Araldia, 2312
+		----Stampa associata----
+		Il nuovo presidente si insedia, il paese attende ansioso cambiamenti dal governo
 		</welcomeMessage>
 	</misc>
 </Araldia>
@@ -1713,6 +1784,7 @@
 	}
 
 	function recurseget(who, what) {
+		//deprecated
 		var ac = what.split("|")
 		if (gameVars[who] == undefined) gameVars[who] = {};
 		var cVal = gameVars[who][what[0]];
@@ -1726,7 +1798,9 @@
 		return cVal;
 	}
 	function gvRead(who, what) {
-		return recurseget(who, what);
+		if (gameVars[who] == undefined) return 0;
+		if (gameVars[who][what]  == undefined) return 0;
+		return gameVars[who][what] ;
 	}
 	function randomInteger(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -1750,6 +1824,7 @@
 			}
 			else if (parseInt(gvRead(who, what)) < 0) {
 				gameVars[who][what] = 0;
+				gameOver();
 			}
 			if (who == "levels") updateLevelGraphically(what, gameVars[who][what])
 		}
@@ -2045,12 +2120,45 @@ function upGrData(){
         var options = {
           title: 'CTS',
 		  backgroundColor: { fill:'transparent' },
-		  color: "white"
+		  color: "white",
+		  chartArea: {
+      // leave room for y-axis labels
+      width: '94%'
+    },
+    legend: {
+      position: 'top'
+    },
+    width: '100%'
         };
 		chart.draw(data, options);
 
 }
-
+function gameOver(){
+	audio.src="music/end.mp3";
+	audio.play();
+	
+		$("#beginSect2").fadeIn();
+		$("#mq2").html(`
+		<pre>
+			
+		Game Over
+			
+			
+			
+			
+		Araldia
+		
+		&copy; 2021
+		Mattia Mascarello
+		Diego Scanavino
+		Giacomo Roggero
+		
+		Musica: RoleMusic
+		</pre>
+		
+		`);
+	
+}
 	var i = 0, childrenEl = null, tHtml = "",chart=null,tick=0,chart=null;
 	parser = new DOMParser();
 	xmlDoc = parser.parseFromString(text, "text/xml");
@@ -2063,11 +2171,12 @@ function upGrData(){
 	for (i = 0; i < values.childElementCount; i++) {
 		childrenEl = values.children[i];
 		//console.log(childrenEl);
-		tHtml += `<tr id="` + childrenEl.getElementsByTagName("name")[0].textContent + `" onmouseover="ttvy(this)" onmouseout="ttvn(this)" data-desc="` + childrenEl.getElementsByTagName("description")[0].textContent + `"><td>` + childrenEl.getElementsByTagName("title")[0].textContent + `</td><td class="mtW">&nbsp;&nbsp;&nbsp;<progress  class="nes-progress is-success"  style=" width:400px;" min="` + childrenEl.getElementsByTagName("min")[0].textContent + `" max="` + childrenEl.getElementsByTagName("max")[0].textContent + `" value="` + childrenEl.getElementsByTagName("default")[0].textContent + `"  ></progress></td><td>` + childrenEl.getElementsByTagName("default")[0].textContent + `/` + childrenEl.getElementsByTagName("max")[0].textContent + `</td></tr>`;
+		tHtml += `<tr id="` + childrenEl.getElementsByTagName("name")[0].textContent + `" onmouseover="ttvy(this)" onmouseout="ttvn(this)" data-desc="` + childrenEl.getElementsByTagName("description")[0].textContent + `"><td>` + childrenEl.getElementsByTagName("title")[0].textContent + `</td><td class="mtW">&nbsp;&nbsp;&nbsp;<progress  class="nes-progress is-success"  style=" width:400px;" min="` + childrenEl.getElementsByTagName("min")[0].textContent + `" max="` + childrenEl.getElementsByTagName("max")[0].textContent + `" value="` + childrenEl.getElementsByTagName("default")[0].textContent + `"  ></progress></td><td>` + childrenEl.getElementsByTagName("default")[0].textContent +`</td></tr>`;
 	}
 	//console.log(tHtml);
 	tHtml += "</table>";
 	$("#levels").hide();
+	$("#musicBox").fadeIn();
 	document.getElementById("levels").innerHTML = tHtml;
 	$("#begin").click(function () {
 		set("levels", "health", null, 50);
@@ -2088,22 +2197,31 @@ function upGrData(){
 
 			var data = google.visualization.arrayToDataTable([
           ['Categoria', 'Persone'],
-          ['Sani',     60000000],
+          ['Sani',     6000000],
           ['Infetti',      0],
           ['Immuni',  0],
           ['Morti', 0]
         ]);
 
         var options = {
-			backgroundColor: { fill:'transparent' },
-			color:"white",
-          title: 'CTS'
+          title: 'CTS',
+		  backgroundColor: { fill:'transparent' },
+		  color: "white",
+		  chartArea: {
+      // leave room for y-axis labels
+      width: '94%'
+    },
+    legend: {
+      position: 'top'
+    },
+    width: '100%'
         };
 
         chart= new google.visualization.PieChart(document.getElementById('cts'));
 
         chart.draw(data, options);
 			initRandVirus(function(){
+			
 			$("#countV").fadeIn();
 			audio.src = "music/Rolemusic - The White Frame.mp3";
 			audio.volume=0;
@@ -2118,12 +2236,14 @@ function upGrData(){
 
 	var randMap={};
 		function randEl(category) {
-		if(!randMap[category]) randMap[category]=[];	
-		if(randMap[category].length==cats.getElementsByTagName(category)[0].childElementCount) randMap[category]=[];
-		var imx=0;
+		if(!randMap[category]) randMap[category]=[0];	
+		if(randMap[category].length==cats.getElementsByTagName(category)[0].childElementCount) randMap[category]=[0];
+		if(tick%5==0) return cats.getElementsByTagName(category)[0].children[0];
+		var imx=imx=randomInteger(0, cats.getElementsByTagName(category)[0].childElementCount - 1);
 		while(randMap[category].indexOf(imx)>-1){
-			imx=randomInteger(0, cats.getElementsByTagName(category)[0].childElementCount - 1)
+			imx=randomInteger(0, cats.getElementsByTagName(category)[0].childElementCount - 1);
 		}
+		randMap[category].push(imx);
 		return cats.getElementsByTagName(category)[0].children[imx];
 	}
 	function getEl(category, name) {
@@ -2146,8 +2266,27 @@ function upGrData(){
 		gameVars.player.actionN++;
 	}
 	function Q() {
+		lastVircb=null;
 		var h = randEl("questions");
+		if(tick%5==0 && tick!=0){
+			$("#gameField").hide();
+		gameVars["virus"]["infoboxLastI"] ++;
+			$("#virusBeginOhNo").show();
+			var infoId=gameVars["virus"]["infoboxLastI"] ;
+			var el=cats.getElementsByTagName("viruses")[virusIndex];
+			try{
+		  	var text = el.getElementsByTagName("infoboxes")[0].children[infoId].textContent;
+		  	if(text==undefined) throw "un";
+		  	}
+		  	catch(e){
+		  		$("gameField").show();
+		  		$("virusBeginOhNo").hide();
+		  	}
+		$("#virusBeginOhNo").html("<br/><br/><br/><br/><br/><br/><br/><h1>Bollettino</h1><br /><p class=\"wbb\">" + text + "</p><button type=\"button\" class=\"okVir nes-btn is-primary\">OK</button>");
+		}
+		
 		setField(h);
+			
 		/*if(tick%5==0 && tick!=0) */ calcvir();
 		tick++;
 	}
@@ -2290,7 +2429,7 @@ function upGrData(){
 	function updateLevelGraphically(id, val) {
 		var prog = $("#" + id).children(".mtW").children("progress");
 		prog.attr("value", val);
-		$("#" + id).children("td").last().html(val + "/" + 100);
+		$("#" + id).children("td").last().html(val );
 		prog.removeClass("is-success");
 		prog.removeClass("is-warning");
 		prog.removeClass("is-error");
@@ -2353,16 +2492,17 @@ function upGrData(){
 
 		upGrData();
 	}
-	var lastVircb=null;
+	var lastVircb=null,virusIndex=0;
 	function initRandVirus(cb) {
 		lastVircb=cb;
 		setTimeout(function(){
 		audio.src="music/improvisation.mp3";
 		audio.volume=1;
 		audio.play()
-		},5000);
-		var li = cats.getElementsByTagName("viruses")[0].children;
+10},1000);
+		var li = window.cats.getElementsByTagName("viruses")[0].children;
 		var Iindex = randomInteger(0, li.length - 1);
+		virusIndex=Iindex;
 		var el = li[Iindex];
 		var title = el.getElementsByTagName("title")[0].textContent;
 		var text = el.getElementsByTagName("infoboxes")[0].children[0].textContent;
@@ -2372,11 +2512,11 @@ function upGrData(){
 		gameVars["virus"]["people"]["dead"]=0;
 		gameVars["virus"]["people"]["immune"]=0;
 		gameVars["virus"]["people"]["infected"]=randomInteger(30,200);
-		gameVars["virus"]["people"]["healthy"]=60000;
+		gameVars["virus"]["people"]["healthy"]=6000000;
 
 		gameVars["virus"]["title"] = title;
 		gameVars["virus"]["infoboxLastI"] = 0;
-		gameVars["virus"]["stepsBeforeShowDashboard"] = randomInteger(3, 10);
+	// deprecated	gameVars["virus"]["stepsBeforeShowDashboard"] = randomInteger(3, 10);
 		gameVars["virus"]["dashboardShown"] = false;
 		gameVars["virus"]["Iindex"] = Iindex;
 		gameVars["virus"]["lethality"] = parseFloat(el.getElementsByTagName("levels")[0].getElementsByTagName("lethality")[0].textContent);
