@@ -4,7 +4,7 @@
 		<value>
 			<name>health</name>
 			<title>Salute</title>
-			<description>Coff.. coff.. Una popolazione in salute potrebbe essere utile</description>
+			<description>Coff.. coff.. Una poplazione in salute potrebbe essere utile</description>
 			<min>0</min>
 			<max>100</max>
 			<default>100</default>
@@ -117,7 +117,7 @@
 				</choices>
 			</scene>
 			<scene>
-				<name>randVacc</name>
+				<name>RandVacc</name>
 				<title>Vaccino</title>
 					<description>
 						<sectionGroup	chance="100">
@@ -221,7 +221,8 @@
 					</choice>
 				</choices>
 			</question>
-			
+		
+		<questions>
 			<question>
 				<name>CrostaSconcordia</name>
 				<title>Nave incagliata</title>
@@ -306,8 +307,8 @@
 		
 		
 			<question>
-				<name>Sparatoria in centro a Mylano</name>
-				<title>Sparatoria in centro a Mylano</title>
+				<name>Sparatoria in centro a Milano</name>
+				<title>>Sparatoria in centro a Milano</title>
 				<description>
 					Un poliziotto fuori servizio di nome Giorgio Sinodi ha utilizzato la sua pistola d'ordiananza per uccidere la moglie che lo aveva precedentemente tradito.
 					<br />
@@ -520,7 +521,7 @@
 				<name>droga</name>
 				<title>Caso di droga nella tua alleanza di Parlamento</title>
 				<description>
-					Il tuo ministro dell'interno Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo Araldico
+					Il tuo ministro dell'interno, Giovanni Foresta è sotto inchiesta per aver favorito, grazie alla sua influenza, la distribuzione di droga sul suolo italiano
 					<br />
 					Come desideri procedere?
 				</description>
@@ -545,7 +546,7 @@
 				<name>esercito</name>
 				<title>Nuove forze armate?</title>
 				<description>
-					Il Generale Padruolo ti propone di finanziare delle attività funzionali al rafforzamento dell'esercito Araldico
+					Il Generale Padruolo ti propone di finanziare delle attività funzionali al rafforzamento dell'esercito italiano
 					<br />
 					Cosa fai?
 				</description>
@@ -586,7 +587,7 @@
 						</effects>
 					</choice>
 					<choice>
-						<title>Ah perchè in Araldia si lavora anche?</title>
+						<title>Ah perchè in italia si lavora anche?</title>
 						<effects>
 							<goto question="next" />
 							<set who="levels" what="consensus" delta="-5" />
@@ -628,7 +629,7 @@
 				<name>fuggitivo</name>
 				<title>Fuggitivo proveniente dalla Francia</title>
 				<description>
-					Un noto criminale è riuscito a fuggire da un carcere di massima sicurezza in Francia, recandosi in Araldia. La Francia ti chiede di cercarlo all'interno tuoi confini.
+					Un noto criminale è riuscito a fuggire da un carcere di massima sicurezza in Francia, recandosi in Italia. La Francia ti chiede di cercarlo all'interno tuoi confini.
 					<br />
 					Cosa fai?
 				</description>
@@ -659,7 +660,7 @@
 				<name>giornalista</name>
 				<title>Giornalista ficcanaso</title>
 				<description>
-					Il giornalista Girolamo Preti ha scritto un articolo sulla tua attuale gestione del Paese
+					Il giornalistaGirolamo Preti ha scritto un articolo sulla tua attuale gestione del Paese
 					<br />
 					Cosa fai?
 				</description>
@@ -733,7 +734,7 @@
 				</description>
 				<choices>
 					<choice>
-						<title> Haha, un paritino al 4%</title>
+						<title> Haha, un paritino del 4%</title>
 						<effects>
 							<goto question="next" />
 							<set who="levels" what="consensus" delta="+10" />
@@ -859,7 +860,7 @@
 				<name>Monsatero</name>
 				<title>Monastero</title>
 				<description>
-					Il Phapa ti propone la ristrutturazione di un antico monastero situato sugli Appendini. Uhmm....
+					Il Phapa ti propone la ristrutturazione di un antico monastero situato sugli appennini. Uhmm....
 				</description>
 				<choices>
 					<choice>
@@ -1017,7 +1018,7 @@
 				<name>randomChemistryTrivia</name>
 				<title>Acido perclorico</title>
 				<description>
-					Qual è di questi?
+					Qual'è di questi?
 						</description>
 				<choices>
 					<choice>
@@ -1304,7 +1305,7 @@
 				<lethality>2.5</lethality>
 			</levels>
 			<infoboxes>
-				<infobox>Gli scienziati dell'Accademia di Salomone hanno scoperto un nuovo coronavirus. Esso è un virus ad RNA che si trasmette per via aerea ed è potenzialmente pandemico</infobox>
+				<infobox>Gli scienziati dell'Academia di Salomone hanno scoperto un nuovo coronavirus. Esso è un virus ad RNA che si trasmette per via aerea ed è potenzialmente pandemico</infobox>
 				<infobox>I sintomi inziali sono solitamente tosse, febbre, mal di testa e vomito, ma le conseguenze possono essere ben più gravi.</infobox>
 				<infobox>L'Istituto Nazionale di Statistica ha calcolato che questo virus ha una letalità del 1% e un Rt di 2,5. Gli esperti ti chiedono di adottare misure di sicurezza per ridurne la diffusione</infobox>
 				<infobox>Secondo le ricerche condotte dall'Accademia di Salomone, questo virus è fuggito dal laboratorio di microbiologia "Matteo Koothrappali"</infobox>
