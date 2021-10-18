@@ -1,4 +1,7 @@
 # Araldia
+
+![GitHub](https://img.shields.io/github/license/MatMasIt/Araldia)
+
 Signor presidente, ci occorre il suo aiuto!
 
 ## The videogame
